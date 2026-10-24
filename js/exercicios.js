@@ -1,97 +1,140 @@
 
+
 const questoes = [
     {
-        categoria: "Teoria dos conjuntos",
-        enunciado: "Qual é a interseção dos conjuntos A e B?",
+        categoria: "Tipos de conjuntos",
+        enunciado: "Qual alternativa apresenta corretamente um conjunto unitário e um conjunto vazio?",
         conteudo: `
-            <p>Considere:</p>
-            <p><strong>A = {1, 2, 3, 4}</strong></p>
-            <p><strong>B = {3, 4, 5, 6}</strong></p>
+            <p>Um conjunto unitário possui exatamente um elemento.
+            Um conjunto vazio não possui nenhum elemento.</p>
         `,
         alternativas: [
-            "A ∪ B = {1, 2, 3, 4, 5, 6}",
-            "A ∩ B = {3, 4}",
-            "A ∩ B = {1, 2}",
-            "A ∩ B = {5, 6}"
+            "A = {1, 2} e B = {0}",
+            "A = {5} e B = ∅",
+            "A = ∅ e B = {1, 2, 3}",
+            "A = {1, 2, 3} e B = {4, 5}"
         ],
         correta: 1,
         explicacao:
-            "A interseção contém os elementos que aparecem nos dois conjuntos. " +
-            "Os elementos comuns a A e B são 3 e 4."
+            "A = {5} é unitário porque possui um elemento. B = ∅ é vazio porque não possui elementos."
     },
     {
-        categoria: "Operações entre conjuntos",
-        enunciado: "Considere U = {1, 2, 3, 4, 5} e A = {1, 3, 5}. Qual é o complemento de A em U?",
+        categoria: "Pertinência e inclusão",
+        enunciado: "Considere A = {1, 2} e B = {1, 2, 3}. Qual afirmação é verdadeira?",
         conteudo: `
-            <p>O complemento de A contém os elementos de U que não pertencem a A.</p>
+            <p>Pertinência relaciona um elemento a um conjunto.
+            Inclusão relaciona um conjunto a outro conjunto.</p>
         `,
         alternativas: [
-            "{1, 3, 5}",
-            "{1, 2, 3, 4, 5}",
-            "{2, 4}",
-            "{2, 3, 4}"
+            "3 ∈ A",
+            "A ⊆ B",
+            "B ⊆ A",
+            "{3} ⊆ A"
         ],
-        correta: 2,
+        correta: 1,
         explicacao:
-            "Retirando de U os elementos 1, 3 e 5, restam 2 e 4. " +
-            "Portanto, o complemento de A é {2, 4}."
+            "Todos os elementos de A também pertencem a B, portanto A está contido em B. O elemento 3 pertence a B, mas não a A."
+    },
+    {
+        categoria: "União e interseção",
+        enunciado: "Considere A = {1, 2, 3, 4} e B = {3, 4, 5, 6}. Quais são A ∪ B e A ∩ B?",
+        conteudo: `
+            <p>A união reúne os elementos que pertencem a pelo menos um dos conjuntos.
+            A interseção reúne os elementos comuns aos dois conjuntos.</p>
+        `,
+        alternativas: [
+            "A ∪ B = {3, 4} e A ∩ B = {1, 2, 5, 6}",
+            "A ∪ B = {1, 2, 3, 4, 5, 6} e A ∩ B = {3, 4}",
+            "A ∪ B = {1, 2, 5, 6} e A ∩ B = {3, 4}",
+            "A ∪ B = {1, 2, 3, 4, 5, 6} e A ∩ B = ∅"
+        ],
+        correta: 1,
+        explicacao:
+            "A união contém todos os elementos de A e B, sem repetições. A interseção contém apenas os elementos comuns: 3 e 4."
+    },
+    {
+        categoria: "Diferença e complemento",
+        enunciado: "Considere U = {1, 2, 3, 4, 5, 6}, A = {1, 2, 3} e B = {3, 4}. Quais são A − B e o complemento de A em U?",
+        conteudo: `
+            <p>A − B contém os elementos de A que não pertencem a B.
+            O complemento de A contém os elementos de U que não pertencem a A.</p>
+        `,
+        alternativas: [
+            "A − B = {3} e Aᶜ = {1, 2, 3}",
+            "A − B = {1, 2} e Aᶜ = {4, 5, 6}",
+            "A − B = {1, 2, 3, 4} e Aᶜ = {4, 5, 6}",
+            "A − B = {4} e Aᶜ = {1, 2, 3}"
+        ],
+        correta: 1,
+        explicacao:
+            "O elemento 3 está em A e B, então é retirado de A − B, restando {1, 2}. Os elementos de U que não estão em A são {4, 5, 6}."
     },
     {
         categoria: "Frases e proposições",
-        enunciado: "Qual das alternativas é uma proposição lógica?",
+        enunciado: "Qual alternativa é uma proposição lógica?",
         conteudo: `
-            <p>Uma proposição é uma sentença declarativa à qual se pode atribuir
-            um valor lógico: verdadeiro ou falso.</p>
+            <p>Uma proposição é uma sentença declarativa que pode ser classificada como verdadeira ou falsa.</p>
         `,
         alternativas: [
-            "Qual é a sua idade?",
-            "Feche a janela!",
+            "Qual é o seu nome?",
+            "Feche a porta!",
             "O número 8 é par.",
-            "Estude matemática."
+            "Que dia bonito!"
         ],
         correta: 2,
         explicacao:
-            "A frase 'O número 8 é par' é declarativa e possui valor lógico verdadeiro. " +
-            "Perguntas e ordens não são proposições."
+            "A frase 'O número 8 é par' é declarativa e tem valor lógico verdadeiro. Perguntas e ordens não são proposições."
     },
     {
-        categoria: "Quantificadores",
-        enunciado: "Qual símbolo representa o quantificador universal?",
+        categoria: "Negação",
+        enunciado: "Se p é verdadeira, qual é o valor lógico de ¬p?",
         conteudo: `
-            <p>Os quantificadores indicam se uma propriedade vale para todos
-            os elementos de um universo ou para pelo menos um deles.</p>
+            <p>O símbolo ¬ representa a negação: inverte o valor lógico da proposição.</p>
         `,
         alternativas: [
-            "∃ — existe pelo menos um",
-            "∀ — para todo",
-            "∈ — pertence a",
-            "∧ — e"
+            "Verdadeiro",
+            "Falso",
+            "Verdadeiro e falso ao mesmo tempo",
+            "Não é possível determinar"
         ],
         correta: 1,
         explicacao:
-            "O símbolo ∀ significa 'para todo' e representa o quantificador universal. " +
-            "O símbolo ∃ representa o quantificador existencial."
+            "A negação inverte o valor lógico. Se p é verdadeira, ¬p é falsa."
     },
     {
-        categoria: "Conectivos lógicos",
+        categoria: "Conjunção",
         enunciado: "Se p é verdadeira e q é falsa, qual é o valor lógico de p ∧ q?",
         conteudo: `
-            <p>O conectivo ∧ representa a conjunção, lida como 'p e q'.</p>
-            <p>Considere: <strong>p = V</strong> e <strong>q = F</strong>.</p>
+            <p>O conectivo ∧ significa 'p e q'.</p>
+        `,
+        alternativas: [
+            "Verdadeiro",
+            "Falso",
+            "Depende apenas de p",
+            "A expressão não é uma proposição"
+        ],
+        correta: 1,
+        explicacao:
+            "A conjunção só é verdadeira quando ambas as proposições são verdadeiras. Como q é falsa, p ∧ q é falsa."
+    },
+    {
+        categoria: "Disjunção",
+        enunciado: "Se p é falsa e q é verdadeira, qual é o valor lógico de p ∨ q?",
+        conteudo: `
+            <p>O conectivo ∨ representa a disjunção inclusiva, lida como 'p ou q'.</p>
         `,
         alternativas: [
             "Verdadeiro",
             "Falso",
             "Não é possível determinar",
-            "A expressão não é uma proposição"
+            "A expressão não possui valor lógico"
         ],
-        correta: 1,
+        correta: 0,
         explicacao:
-            "A conjunção só é verdadeira quando ambas as proposições são verdadeiras. " +
-            "Como q é falsa, p ∧ q é falsa."
+            "A disjunção inclusiva é verdadeira quando pelo menos uma das proposições é verdadeira. Como q é verdadeira, p ∨ q é verdadeira."
     },
     {
-        categoria: "Conectivos lógicos",
+        categoria: "Condicional",
         enunciado: "Se p e q são falsas, qual é o valor lógico de p → q?",
         conteudo: `
             <p>O condicional p → q é lido como 'se p, então q'.</p>
@@ -99,50 +142,93 @@ const questoes = [
         alternativas: [
             "Verdadeiro",
             "Falso",
-            "Depende do valor de p apenas",
+            "Depende apenas de q",
+            "Não é uma proposição"
+        ],
+        correta: 0,
+        explicacao:
+            "O condicional só é falso quando p é verdadeira e q é falsa. Quando ambas são falsas, p → q é verdadeira."
+    },
+    {
+        categoria: "Bicondicional",
+        enunciado: "Se p e q são verdadeiras, qual é o valor lógico de p ↔ q?",
+        conteudo: `
+            <p>O bicondicional p ↔ q é lido como 'p se e somente se q'.</p>
+        `,
+        alternativas: [
+            "Verdadeiro",
+            "Falso",
+            "Depende de uma terceira proposição",
             "Não possui valor lógico"
         ],
         correta: 0,
         explicacao:
-            "O condicional só é falso quando p é verdadeira e q é falsa. " +
-            "Quando ambas são falsas, p → q é verdadeiro."
+            "O bicondicional é verdadeiro quando p e q têm o mesmo valor lógico. Como ambas são verdadeiras, p ↔ q é verdadeira."
+    },
+    {
+        categoria: "Quantificador universal",
+        enunciado: "Considere U = {1, 2, 3}. Qual sentença é verdadeira?",
+        conteudo: `
+            <p>O quantificador universal ∀ significa 'para todo'.</p>
+        `,
+        alternativas: [
+            "∀x ∈ U, x > 2",
+            "∀x ∈ U, x > 0",
+            "∀x ∈ U, x = 2",
+            "∀x ∈ U, x < 2"
+        ],
+        correta: 1,
+        explicacao:
+            "Todos os elementos de U (1, 2 e 3) são maiores que zero. As demais sentenças falham para pelo menos um elemento do universo."
+    },
+    {
+        categoria: "Quantificador existencial",
+        enunciado: "Considere U = {1, 2, 3, 4}. Qual sentença existencial é verdadeira?",
+        conteudo: `
+            <p>O quantificador existencial ∃ significa 'existe pelo menos um elemento'.</p>
+        `,
+        alternativas: [
+            "∃x ∈ U, x > 4",
+            "∃x ∈ U, x = 3",
+            "∃x ∈ U, x < 0",
+            "∃x ∈ U, x = 5"
+        ],
+        correta: 1,
+        explicacao:
+            "A sentença é verdadeira porque 3 pertence a U. Para o quantificador existencial ser verdadeiro, basta um elemento satisfazer a condição."
     },
     {
         categoria: "Tabelas-verdade",
-        enunciado: "Em qual linha a disjunção p ∨ q é falsa?",
+        enunciado: "Qual é a coluna correta da tabela-verdade de p → q?",
         conteudo: `
-            <p>A disjunção ∨ representa 'p ou q'. Observe a tabela:</p>
-
-            <table class="tabela-verdade">
+            <p>Considere as combinações de valores na ordem apresentada.</p>
+            <table class="table table-bordered tabela-verdade">
                 <thead>
-                    <tr><th>p</th><th>q</th><th>p ∨ q</th></tr>
+                    <tr><th>p</th><th>q</th><th>p → q</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>V</td><td>V</td><td>V</td></tr>
-                    <tr><td>V</td><td>F</td><td>V</td></tr>
-                    <tr><td>F</td><td>V</td><td>V</td></tr>
-                    <tr><td>F</td><td>F</td><td>F</td></tr>
+                    <tr><td>V</td><td>V</td><td>?</td></tr>
+                    <tr><td>V</td><td>F</td><td>?</td></tr>
+                    <tr><td>F</td><td>V</td><td>?</td></tr>
+                    <tr><td>F</td><td>F</td><td>?</td></tr>
                 </tbody>
             </table>
         `,
         alternativas: [
-            "Quando p e q são verdadeiras",
-            "Quando p é verdadeira e q é falsa",
-            "Quando p é falsa e q é verdadeira",
-            "Quando p e q são falsas"
+            "V, V, F, F",
+            "V, F, V, V",
+            "F, V, V, V",
+            "V, F, F, V"
         ],
-        correta: 3,
+        correta: 1,
         explicacao:
-            "A disjunção inclusiva é verdadeira quando pelo menos uma proposição é verdadeira. " +
-            "Ela só é falsa quando p e q são ambas falsas."
+            "O condicional só é falso quando o antecedente p é verdadeiro e o consequente q é falso. A coluna correta é V, F, V, V."
     },
     {
         categoria: "Equivalências lógicas",
         enunciado: "Qual expressão é logicamente equivalente a p → q?",
         conteudo: `
-            <p>Duas expressões são logicamente equivalentes quando apresentam
-            o mesmo valor lógico para todas as combinações possíveis de valores
-            das proposições.</p>
+            <p>Duas expressões são equivalentes quando apresentam os mesmos valores lógicos em todas as combinações possíveis.</p>
         `,
         alternativas: [
             "p ∧ q",
@@ -152,8 +238,23 @@ const questoes = [
         ],
         correta: 2,
         explicacao:
-            "O condicional p → q é logicamente equivalente a ¬p ∨ q. " +
-            "As duas expressões possuem os mesmos valores na tabela-verdade."
+            "O condicional p → q é equivalente a ¬p ∨ q. As duas expressões produzem a mesma coluna na tabela-verdade."
+    },
+    {
+        categoria: "Contingência lógica",
+        enunciado: "Uma expressão lógica é uma contingência quando...",
+        conteudo: `
+            <p>Uma tautologia é sempre verdadeira; uma contradição é sempre falsa.</p>
+        `,
+        alternativas: [
+            "É verdadeira em todas as combinações.",
+            "É falsa em todas as combinações.",
+            "É verdadeira em algumas combinações e falsa em outras.",
+            "Não possui valores lógicos."
+        ],
+        correta: 2,
+        explicacao:
+            "Uma contingência assume valores verdadeiros e falsos, dependendo dos valores das proposições que a compõem."
     }
 ];
 
