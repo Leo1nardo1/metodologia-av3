@@ -1,0 +1,285 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TautoLab - Simulador de Conjuntos</title>
+
+    <!-- Bootstrap 5 -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- CSS geral do projeto -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- CSS específico do simulador -->
+    <link rel="stylesheet" href="css/simulador.css">
+</head>
+
+<body>
+    <!-- Navegação -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="aprender.html">
+                TautoLab
+            </a>
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Abrir menu"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="aprender.html">
+                            Aprender
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="exercicios.html">
+                            Exercícios
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a
+                            class="nav-link active"
+                            aria-current="page"
+                            href="simulador.html"
+                        >
+                            Simulador
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Conteúdo principal -->
+    <main class="container py-5">
+        <header class="mb-4">
+            <span class="text-primary fw-semibold">
+                MÓDULO 3
+            </span>
+
+            <h1 class="fw-bold mt-2">
+                Simulador de Conjuntos
+            </h1>
+
+            <p class="text-secondary">
+                Informe os conjuntos, escolha uma operação e visualize
+                o resultado no diagrama de Venn.
+            </p>
+        </header>
+
+        <div class="row g-4">
+            <!-- Painel de configuração -->
+            <section class="col-lg-4" aria-labelledby="tituloConfiguracao">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <h2 class="h5 mb-3" id="tituloConfiguracao">
+                            1. Defina os conjuntos
+                        </h2>
+
+                        <p class="text-secondary small">
+                            Separe os elementos por vírgulas.
+                            O universo deve conter todos os elementos
+                            de A e B.
+                        </p>
+
+                        <form id="formSimulador">
+                            <div class="mb-3">
+                                <label for="universo" class="form-label fw-semibold">
+                                    Universo (U)
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="universo"
+                                    value="1, 2, 3, 4, 5, 6, 7, 8"
+                                    placeholder="Ex.: 1, 2, 3, 4, 5"
+                                    required
+                                >
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="conjuntoA" class="form-label fw-semibold">
+                                    Conjunto A
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="conjuntoA"
+                                    value="1, 2, 3, 4"
+                                    placeholder="Ex.: 1, 2, 3"
+                                    required
+                                >
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="conjuntoB" class="form-label fw-semibold">
+                                    Conjunto B
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="conjuntoB"
+                                    value="3, 4, 5, 6"
+                                    placeholder="Ex.: 3, 4, 5"
+                                    required
+                                >
+                            </div>
+
+                            <hr class="my-4">
+
+                            <h2 class="h5 mb-3">
+                                2. Escolha a operação
+                            </h2>
+
+                            <label for="operacao" class="form-label">
+                                Operação matemática
+                            </label>
+
+                            <select class="form-select mb-3" id="operacao">
+                                <option value="uniao">União (A ∪ B)</option>
+                                <option value="intersecao">Interseção (A ∩ B)</option>
+                                <option value="diferencaAB">Diferença (A − B)</option>
+                                <option value="diferencaBA">Diferença (B − A)</option>
+                                <option value="complementoA">Complemento de A (Aᶜ)</option>
+                                <option value="complementoB">Complemento de B (Bᶜ)</option>
+                            </select>
+
+                            <button
+                                type="submit"
+                                class="btn btn-primary w-100"
+                            >
+                                Simular operação
+                            </button>
+
+                            <button
+                                type="button"
+                                class="btn btn-outline-secondary w-100 mt-2"
+                                id="btnLimpar"
+                            >
+                                Restaurar exemplos
+                            </button>
+                        </form>
+
+                        <div
+                            id="mensagemErro"
+                            class="alert alert-danger mt-3 d-none"
+                            role="alert"
+                        ></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Painel do diagrama e resultado -->
+            <section class="col-lg-8" aria-labelledby="tituloDiagrama">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body p-3 p-md-4">
+                        <div class="d-flex justify-content-between
+                                    align-items-center flex-wrap gap-2 mb-3">
+                            <h2 class="h5 mb-0" id="tituloDiagrama">
+                                Diagrama de Venn
+                            </h2>
+
+                            <span class="badge text-bg-primary" id="rotuloOperacao">
+                                A ∪ B
+                            </span>
+                        </div>
+
+                        <div class="diagrama-container">
+                            <svg
+                                id="diagramaVenn"
+                                viewBox="0 0 600 330"
+                                role="img"
+                                aria-label="Diagrama de Venn dos conjuntos A e B"
+                            >
+                                <text x="300" y="160" text-anchor="middle">
+                                    O diagrama será exibido aqui.
+                                </text>
+                            </svg>
+                        </div>
+
+                        <div class="legenda mt-3">
+                            <span>
+                                <span class="legenda-cor cor-a"></span>
+                                Conjunto A
+                            </span>
+
+                            <span>
+                                <span class="legenda-cor cor-b"></span>
+                                Conjunto B
+                            </span>
+
+                            <span>
+                                <span class="legenda-cor cor-resultado"></span>
+                                Região selecionada
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resultado matemático -->
+                <div class="card shadow-sm">
+                    <div class="card-body p-4">
+                        <h2 class="h5 mb-3">
+                            Resultado da operação
+                        </h2>
+
+                        <div class="resultado-box">
+                            <div class="text-secondary small">
+                                Resultado
+                            </div>
+
+                            <div
+                                class="resultado-expressao"
+                                id="expressaoResultado"
+                                aria-live="polite"
+                            >
+                                A ∪ B = {1, 2, 3, 4, 5, 6}
+                            </div>
+
+                            <div
+                                class="text-secondary small mt-2"
+                                id="cardinalidade"
+                            >
+                                Cardinalidade: 6 elementos
+                            </div>
+                        </div>
+
+                        <p class="mt-3 mb-0" id="explicacaoResultado">
+                            A união reúne todos os elementos que pertencem
+                            a A, a B ou a ambos.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="container py-4 text-center text-secondary small">
+        TautoLab — Aprender lógica faz sentido.
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/simulador.js"></script>
+</body>
+</html>
