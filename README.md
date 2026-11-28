@@ -43,10 +43,6 @@ O projeto é estático e não exige instalação de dependências ou banco de da
 - JavaScript
 - Bootstrap 5.3.8 (via CDN)
 
-## Observação sobre circuitos lógicos
-
-A versão atual apresenta conectivos lógicos e permite construir tabelas-verdade, mas ainda não possui uma atividade de circuitos/portas lógicas. Caso esse conteúdo tenha sido solicitado pelo professor, ele deverá ser incorporado como uma funcionalidade complementar.
-
 ## Contexto acadêmico
 
 Projeto desenvolvido para a disciplina de Modelagem e Simulação Matemática.
