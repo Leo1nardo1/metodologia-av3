@@ -1,0 +1,97 @@
+.pagina-exercicios #areaQuestao {
+  background: #fff8e1;
+  border: 3px dashed var(--sun);
+  border-radius: 24px;
+  padding: 1.4rem;
+}
+.pagina-exercicios #enunciado { font-size: 1.4rem; line-height: 1.45; }
+.pagina-exercicios .badge.text-bg-primary {
+  background: var(--mint) !important;
+  color: #07422d !important;
+  font-family: var(--font-title);
+  border-radius: 999px;
+  padding: .55rem 1rem;
+  font-size: .95rem;
+  font-weight: 600;
+  box-shadow: 0 3px 0 #1fb887;
+}
+.pagina-exercicios #contador { font-family: var(--font-title); font-weight: 600; color: var(--muted); }
+.pagina-exercicios .progress {
+  height: 20px;
+  border-radius: 99px;
+  background: var(--lilac);
+  border: 3px solid #fff;
+  box-shadow: inset 0 2px 0 rgba(74, 36, 184, .12);
+  overflow: hidden;
+}
+.pagina-exercicios .progress-bar {
+  background: repeating-linear-gradient(-45deg, var(--mint) 0 14px, #5fe8bd 14px 28px);
+  border-radius: 99px;
+  transition: width .4s ease;
+}
+.pagina-exercicios .alternativas { display: grid; gap: .9rem; }
+.pagina-exercicios .alternativas label,
+.pagina-exercicios .alternativas .form-check,
+.pagina-exercicios .alternativas button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 1rem 1.2rem;
+  border: 3px solid #e1d8fa;
+  border-radius: 20px;
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+  font-weight: 800;
+  font-size: 1.1rem;
+  box-shadow: 0 5px 0 #e1d8fa;
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+.pagina-exercicios .alternativas label:hover,
+.pagina-exercicios .alternativas .form-check:hover,
+.pagina-exercicios .alternativas button:hover {
+  border-color: var(--violet);
+  box-shadow: 0 7px 0 var(--violet);
+  transform: translateY(-2px);
+}
+.pagina-exercicios .alternativas button:active { transform: translateY(4px); box-shadow: 0 1px 0 var(--violet); }
+.pagina-exercicios .alternativas .form-check:has(input:checked) {
+  border-color: var(--violet);
+  background: var(--lilac);
+  box-shadow: 0 5px 0 var(--violet);
+}
+.pagina-exercicios .estatistica {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  padding: .8rem 0;
+  border-bottom: 3px dotted #e1d8fa;
+  color: var(--muted);
+  font-weight: 700;
+}
+.pagina-exercicios .estatistica strong {
+  font-family: var(--font-title);
+  color: var(--violet-dark);
+  background: var(--lilac);
+  border-radius: 14px;
+  padding: .3rem .8rem;
+  font-size: 1.15rem;
+}
+.pagina-exercicios .resultado-final-numero {
+  display: inline-grid;
+  place-items: center;
+  min-width: 150px;
+  min-height: 150px;
+  margin: .8rem auto 1.2rem;
+  padding: 1rem;
+  border-radius: 50%;
+  color: #fff;
+  font-family: var(--font-title);
+  font-size: 2.8rem;
+  font-weight: 700;
+  background: var(--violet);
+  border: 6px solid var(--sun);
+  box-shadow: 0 10px 0 var(--violet-dark);
+  transform: rotate(-4deg);
+}

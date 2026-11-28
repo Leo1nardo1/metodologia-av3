@@ -1,0 +1,93 @@
+.pagina-simulador .btn-group { gap: .8rem; }
+.pagina-simulador .btn-group > .btn { border-radius: 999px !important; }
+
+.pagina-simulador .diagrama-container {
+  border-radius: 24px;
+  background:
+    radial-gradienat(circle at 12% 15%, rgba(255, 210, 63, .30), transparent 30%),
+    radial-gradient(circle at 88% 85%, rgba(47, 214, 160, .28), transparent 32%),
+    #fbf9ff;
+  border: 3px dashed #cfc2f5;
+  padding: .8rem;
+}
+.pagina-simulador #diagramaVenn { width: 100%; min-height: 220px; }
+
+.pagina-simulador .legenda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .8rem 1.4rem;
+  color: var(--muted);
+  font-size: .95rem;
+  font-weight: 800;
+}
+.pagina-simulador .legenda > span { display: inline-flex; align-items: center; gap: .5rem; }
+.pagina-simulador .legenda-cor { width: 16px; height: 16px; display: inline-block; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 0 0 2px currentColor; }
+.pagina-simulador .cor-a { background: #0d6efd; color: #0d6efd; }
+.pagina-simulador .cor-b { background: #6847bd; color: #6847bd; }
+.pagina-simulador .cor-resultado { background: var(--sun); color: #e0a800; }
+
+/* Diagrama: números, letras e região destacada */
+.pagina-simulador #diagramaVenn .regiao-selecionada { fill: var(--sun); fill-opacity: .75; }
+.pagina-simulador #diagramaVenn .elemento {
+  font-family: 'Fredoka', 'Nunito', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  fill: var(--ink);
+  text-anchor: middle;
+}
+.pagina-simulador #diagramaVenn .rotulo-conjunto {
+  font-family: 'Fredoka', 'Nunito', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  fill: var(--violet-dark);
+  text-anchor: middle;
+}
+.pagina-simulador #diagramaVenn text[x="35"] {
+  font-family: 'Fredoka', 'Nunito', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  fill: var(--muted);
+}
+
+/* Resultado */
+.pagina-simulador .resultado-box {
+  padding: 1.3rem;
+  border-radius: 24px;
+  background: #fff8e1;
+  border: 3px solid var(--sun);
+  box-shadow: 0 6px 0 #e0a800;
+}
+.pagina-simulador .resultado-expressao {
+  font-family: var(--font-title);
+  color: var(--violet-dark);
+  font-size: clamp(1.3rem, 3.5vw, 1.9rem);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+.pagina-simulador #rotuloOperacao {
+  background: var(--violet) !important;
+  font-family: var(--font-title);
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: .5rem 1rem;
+  box-shadow: 0 3px 0 var(--violet-dark);
+}
+
+/* Botões de operadores da tabela-verdade */
+.pagina-simulador .operador {
+  min-width: 95px;
+  padding: .5rem 1rem;
+  font-size: 1rem;
+  background: #fff;
+  color: var(--violet-dark);
+  border-color: #cfc2f5;
+  box-shadow: 0 4px 0 #cfc2f5;
+}
+.pagina-simulador #classificacaoTabela { font-weight: 800; font-size: 1.05rem; }
+.pagina-simulador #tabelaVerdade { border-radius: 18px; overflow: hidden; }
+.pagina-simulador #tabelaVerdade td:last-child,
+.pagina-simulador #tabelaVerdade th:last-child { font-weight: 900; }
+.pagina-simulador #tabelaVerdade td { font-family: var(--font-title); font-size: 1.1rem; }
+.pagina-simulador #tabelaVerdade .table-success { --bs-table-bg: #c9f7e5; }
+.pagina-simulador #tabelaVerdade .table-danger { --bs-table-bg: #ffd9d9; }

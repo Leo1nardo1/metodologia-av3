@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TautoLab - Recrutamento Numérico</title>
+
+    <!-- Bootstrap 5.3.8 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    
+    <!-- CSS geral do projeto -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Estilo do jogo -->
+    <style>
+        .perspective { perspective: 1000px; }
+        .card-inner { transform-style: preserve-3d; transition: transform 0.4s; }
+        .flipped { transform: rotateY(180deg); }
+        .face { backface-visibility: hidden; }
+        .back { transform: rotateY(180deg); }
+
+        .card-front {
+            background: linear-gradient(135deg, #7b4dff, #5a2fd6);
+            border: 3px solid #fff;
+            box-shadow: 0 6px 0 var(--violet-dark);
+            color: var(--sun);
+        }
+
+        .card-back {
+            background: #fff;
+            border: 3px solid var(--violet);
+            box-shadow: 0 6px 0 rgba(74, 36, 184, .18);
+            color: var(--ink);
+        }
+
+        .card-done .card-back {
+            background: #dcfbef;
+            border-color: var(--mint-dark, #1fb887);
+            box-shadow: 0 6px 0 #1fb887;
+        }
+    </style>
+</head>
+
+<body class="pagina-aprender">
+
+    <!-- Navbar padrão do site -->
+    <nav class="navbar navbar-expand-lg navbar-tauto">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <span class="brand-mark" aria-hidden="true">✦</span> TautoLab
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Aprender</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="exercicios.html">Exercícios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="simulador.html">Simulador</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="jogo.html">Jogo</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main class="container my-5">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                
+                <span class="text-primary fw-semibold">
+                    DESAFIO INTERATIVO
+                </span>
+                <h1 class="fw-bold mt-2">
+                    Recrutamento Numérico
+                </h1>
+                <p class="lead text-muted">Vire duas cartas e descubra se elas pertencem à mesma família numérica.</p>
+
+                <!-- TELA INICIAL -->
+                <div id="view-start" class="card shadow-sm mt-4">
+                    <div class="card-body p-4 p-md-5 text-center">
+                        <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill fs-6" style="transform: rotate(-2deg); display: inline-block;">
+                            ★ DESAFIO DOS CONJUNTOS NUMÉRICOS
+                        </span>
+
+                        <h2 class="h3 fw-bold mb-3">Descubra os conjuntos jogando!</h2>
+                        <p class="text-secondary mb-4">
+                            Vire duas cartas. Se ambas pertencerem à <strong>mesma família numérica</strong>, confirme qual é o conjunto para marcar pontos!
+                        </p>
+
+                        <div class="row g-3 mb-4 text-start">
+                            <div class="col-md-4">
+                                <div class="p-3 bg-success bg-opacity-10 border border-success border-3 rounded-4 text-success fw-bold">
+                                    <div>Naturais (ℕ)</div>
+                                    <div class="small opacity-75 mt-1">Ex: 0, 4, 12, 25...</div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="p-3 bg-danger bg-opacity-10 border border-danger border-3 rounded-4 text-danger fw-bold">
+                                    <div>Inteiros (ℤ)</div>
+                                    <div class="small opacity-75 mt-1">Ex: -3, -7, -15...</div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="p-3 bg-warning bg-opacity-10 border border-warning border-3 rounded-4 text-dark fw-bold">
+                                    <div>Racionais (ℚ)</div>
+                                    <div class="small opacity-75 mt-1">Ex: 1/2, 0,75, 1,5...</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button onclick="startGame()" class="btn btn-primary btn-lg px-5">
+                            Começar Jogo
+                        </button>
+                    </div>
+                </div>
+
+                <!-- TELA DO JOGO -->
+                <div id="view-game" class="d-none mt-4">
+                    
+                    <!-- Placar e Botão de Reiniciar alinhados lado a lado -->
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <div class="row g-2 text-center fw-bold flex-grow-1 m-0">
+                            <div class="col-6 ps-0">
+                                <div id="box-p1" class="p-2 bg-white rounded-4 border border-primary border-3 shadow-sm transition-all">
+                                    Jogador 1: <span id="score-p1" class="text-primary fs-5">0</span>
+                                </div>
+                            </div>
+                            <div class="col-6 pe-0">
+                                <div id="box-p2" class="p-2 bg-white rounded-4 border border-3 border-transparent opacity-50 transition-all">
+                                    Jogador 2: <span id="score-p2" class="text-danger fs-5">0</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button onclick="startGame()" class="btn btn-outline-secondary rounded-4 px-3 py-2 fw-bold text-nowrap" title="Reiniciar partida">
+                            🔄 Reiniciar
+                        </button>
+                    </div>
+
+                    <!-- Barra de Status -->
+                    <div id="msg" class="alert alert-info text-center fw-bold mb-3 rounded-4 py-3 shadow-sm" role="alert">
+                        Vez do Jogador 1
+                    </div>
+
+                    <!-- Quiz de Confirmação -->
+                    <div id="quiz" class="d-none alert alert-warning p-4 rounded-4 text-center mb-3 shadow-sm">
+                        <div class="fw-bold fs-5 mb-3">Mesma família encontrada! Qual é o conjunto?</div>
+                        <div class="d-flex justify-content-center gap-2 flex-wrap">
+                            <button onclick="checkFam('N')" class="btn btn-success rounded-pill px-4">Naturais (ℕ)</button>
+                            <button onclick="checkFam('Z')" class="btn btn-danger rounded-pill px-4">Inteiros (ℤ)</button>
+                            <button onclick="checkFam('Q')" class="btn btn-warning rounded-pill px-4">Racionais (ℚ)</button>
+                        </div>
+                    </div>
+
+                    <!-- Tabuleiro com 16 cartas -->
+                    <div id="board" class="row g-2"></div>
+                </div>
+
+                <!-- TELA FINAL -->
+                <div id="view-win" class="d-none card shadow-sm mt-4">
+                    <div class="card-body p-4 p-md-5 text-center">
+                        <span class="badge bg-success mb-3 px-3 py-2 rounded-pill fs-6">✦ PARTIDA CONCLUÍDA</span>
+                        <h2 id="win-text" class="h3 fw-bold text-primary mb-3"></h2>
+                        <div id="win-scores" class="alert alert-warning rounded-4 p-3 fw-bold mb-4"></div>
+                        <p class="text-secondary small fw-bold mb-4">Deseja jogar novamente e testar seus conhecimentos?</p>
+                        <button onclick="startGame()" class="btn btn-primary btn-lg px-5">
+                            Reiniciar Jogo
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Rodapé padrão -->
+    <footer class="container py-4 text-center text-secondary small">
+        TautoLab — Aprender lógica faz sentido.
+    </footer>
+
+    <!-- Bootstrap 5.3.8 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+    <script>
+        let turn = 1, lock = false, flipped = [], matched = 0;
+        let scores = [0, 0], cards = [];
+
+        const shuffle = a => [...a].sort(() => Math.random() - 0.5);
+
+        function startGame() {
+            turn = 1; matched = 0; flipped = []; lock = false; scores = [0, 0];
+            document.getElementById('view-start').classList.add('d-none');
+            document.getElementById('view-win').classList.add('d-none');
+            document.getElementById('quiz').classList.add('d-none');
+            document.getElementById('view-game').classList.remove('d-none');
+
+            const poolN = ['3', '7', '12', '25', '40', '0', '15', '9', '4', '18', '33', '50', '2', '8', '21', '35', '1', '6'];
+            const poolZ = ['-2', '-5', '-11', '-18', '-30', '-1', '-7', '-22', '-4', '-15', '-9', '-25', '-12', '-19', '-3', '-14', '-6', '-8'];
+            const poolQ = ['1/2', '3/4', '0,5', '1,5', '2/3', '0,25', '4/5', '1,25', '1/3', '0,75', '3/2', '0,1', '2/5', '1,75', '4/3', '0,6', '5/4', '0,8'];
+
+            const selectedN = shuffle(poolN).slice(0, 6).map(t => ({ t, f: 'N', done: false }));
+            const selectedZ = shuffle(poolZ).slice(0, 6).map(t => ({ t, f: 'Z', done: false }));
+            const selectedQ = shuffle(poolQ).slice(0, 4).map(t => ({ t, f: 'Q', done: false }));
+
+            cards = shuffle([...selectedN, ...selectedZ, ...selectedQ]);
+
+            renderBoard();
+            updateUI();
+        }
+
+        function renderBoard() {
+            const board = document.getElementById('board');
+            board.innerHTML = cards.map((c, i) => `
+                <div id="wrap-${i}" onclick="flip(${i})" class="col-3 perspective cursor-pointer" style="height: 90px;">
+                    <div id="c-${i}" class="card-inner position-relative w-100 h-100">
+                        <div class="face card-front position-absolute top-0 start-0 w-100 h-100 rounded-4 d-flex align-items-center justify-content-center fw-bold fs-3">?</div>
+                        <div class="face back card-back position-absolute top-0 start-0 w-100 h-100 rounded-4 d-flex align-items-center justify-content-center fw-bold fs-4"><span>${c.t}</span></div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function flip(i) {
+            if (lock || cards[i].done || flipped.includes(i)) return;
+            document.getElementById(`c-${i}`).classList.add('flipped');
+            flipped.push(i);
+
+            if (flipped.length === 2) {
+                lock = true;
+                const [a, b] = flipped;
+                
+                if (cards[a].f === cards[b].f) {
+                    document.getElementById('quiz').classList.remove('d-none');
+                } else {
+                    setTimeout(() => {
+                        document.getElementById(`c-${a}`).classList.remove('flipped');
+                        document.getElementById(`c-${b}`).classList.remove('flipped');
+                        flipped = []; turn = turn === 1 ? 2 : 1; lock = false; updateUI();
+                    }, 1100);
+                }
+            }
+        }
+
+        function checkFam(choice) {
+            const [a, b] = flipped;
+            document.getElementById('quiz').classList.add('d-none');
+            
+            if (choice === cards[a].f) {
+                cards[a].done = cards[b].done = true;
+                document.getElementById(`wrap-${a}`).classList.add('card-done');
+                document.getElementById(`wrap-${b}`).classList.add('card-done');
+                scores[turn - 1] += 2; 
+                matched += 2;
+                flipped = []; lock = false; updateUI();
+
+                if (matched === cards.length) {
+                    let winnerText = '';
+                    if (scores[0] > scores[1]) {
+                        winnerText = '🏆 Jogador 1 Venceu o Jogo!';
+                    } else if (scores[1] > scores[0]) {
+                        winnerText = '🏆 Jogador 2 Venceu o Jogo!';
+                    } else {
+                        winnerText = '🤝 Empate Perfeito!';
+                    }
+                    document.getElementById('win-text').textContent = winnerText;
+                    document.getElementById('win-scores').textContent = `Placar Final — Jogador 1: ${scores[0]} pts | Jogador 2: ${scores[1]} pts`;
+                    document.getElementById('view-game').classList.add('d-none');
+                    document.getElementById('view-win').classList.remove('d-none');
+                }
+            } else {
+                setTimeout(() => {
+                    document.getElementById(`c-${a}`).classList.remove('flipped');
+                    document.getElementById(`c-${b}`).classList.remove('flipped');
+                    flipped = []; turn = turn === 1 ? 2 : 1; lock = false; updateUI();
+                }, 900);
+            }
+        }
+
+        function updateUI() {
+            document.getElementById('score-p1').textContent = scores[0];
+            document.getElementById('score-p2').textContent = scores[1];
+            document.getElementById('msg').textContent = `Vez do Jogador ${turn}: Encontre duas cartas da mesma família!`;
+            
+            const box1 = document.getElementById('box-p1');
+            const box2 = document.getElementById('box-p2');
+            
+            if (turn === 1) {
+                box1.className = 'p-2 bg-white rounded-4 border border-primary border-3 shadow-sm transition-all';
+                box2.className = 'p-2 bg-white rounded-4 border border-3 border-transparent opacity-50 transition-all';
+            } else {
+                box1.className = 'p-2 bg-white rounded-4 border border-3 border-transparent opacity-50 transition-all';
+                box2.className = 'p-2 bg-white rounded-4 border border-danger border-3 shadow-sm transition-all';
+            }
+        }
+    </script>
+</body>
+
+</html>
