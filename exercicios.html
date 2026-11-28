@@ -1,136 +1,286 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>TautoLab - Desafios divertidos | TautoLab</title>
+    <meta name="description" content="Pratique teoria dos conjuntos e lógica matemática em três etapas de dificuldade.">
 
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-    >
+    <title>TautoLab | Exercícios</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/exercicios.css">
 </head>
 
 <body class="pagina-exercicios">
-    <nav class="navbar navbar-expand-lg navbar-tauto border-bottom">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html"><span class="brand-mark" aria-hidden="true">✦</span> TautoLab</a>
 
-            <button
-                class="navbar-toggler"
-                type="button"
+    <nav class="navbar navbar-expand-lg navbar-tauto border-bottom">
+
+        <div class="container">
+
+            <a class="navbar-brand fw-bold" href="index.html">
+                <span class="brand-mark" aria-hidden="true">✦</span>
+                TautoLab
+            </a>
+
+            <button class="navbar-toggler" type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#navbarNav"
                 aria-controls="navbarNav"
                 aria-expanded="false"
-                aria-label="Abrir menu"
-            >
+                aria-label="Abrir menu">
+
                 <span class="navbar-toggler-icon"></span>
+
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNav">
+
                 <ul class="navbar-nav ms-auto">
+
                     <li class="nav-item">
                         <a class="nav-link" href="index.html">Aprender</a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link active"
-                           aria-current="page"
-                           href="exercicios.html">Exercícios</a>
+                            aria-current="page"
+                            href="exercicios.html">
+                            Exercícios
+                        </a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="simulador.html">Simulador</a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="jogo.html">Jogo</a>
                     </li>
+
                 </ul>
+
             </div>
+
         </div>
+
     </nav>
 
+
     <main class="container py-5">
-        <header class="mb-4">
-            <span class="text-primary fw-semibold">MÓDULO 2</span>
-            <h1 class="fw-bold mt-2">Desafie seus conhecimentos</h1>
-            <p class="text-secondary">
-                Responda às questões de teoria dos conjuntos e lógica matemática.
-                Ao verificar uma resposta, você verá uma explicação.
-            </p>
-        </header>
 
-        <div class="row g-4">
-            <section class="col-lg-8">
-                <div class="card shadow-sm">
-                    <div class="card-body p-4">
-                        <div class="d-flex justify-content-between
-                                    align-items-center gap-2 mb-3">
-                            <span class="badge text-bg-primary"
-                                  id="categoria">Conjuntos</span>
+        <!-- APRESENTAÇÃO -->
+        <section class="exercicios-hero">
 
-                            <span class="small text-secondary"
-                                  id="contador">Questão 1 de 8</span>
+            <div>
+
+                <span class="secao-etiqueta">
+                    HORA DE PRATICAR
+                </span>
+
+                <h1>
+                    Desafie seus conhecimentos!
+                </h1>
+
+                <p>
+                    São 24 questões divididas em três etapas.
+                    Leia com calma, escolha uma resposta e veja
+                    a explicação antes de avançar.
+                </p>
+
+                <div class="etapas-resumo" aria-label="Etapas dos exercícios">
+
+                    <span><b>01</b> Aquecimento</span>
+                    <span><b>02</b> Praticando</span>
+                    <span><b>03</b> Desafio</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- ILUSTRAÇÃO SVG -->
+            <div class="exercicios-hero-arte" aria-hidden="true">
+
+                <svg viewBox="0 0 230 170">
+
+                    <rect x="30" y="12" width="170" height="142"
+                        rx="24"
+                        fill="#fff"
+                        stroke="#2b1f55"
+                        stroke-width="4"
+                        transform="rotate(-5 115 83)"/>
+
+                    <path d="M67 54 l10 10 19 -22"
+                        fill="none"
+                        stroke="#2fd6a0"
+                        stroke-width="8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"/>
+
+                    <path d="M108 57 H165"
+                        stroke="#6c3fe0"
+                        stroke-width="8"
+                        stroke-linecap="round"/>
+
+                    <path d="M67 94 l10 10 19 -22"
+                        fill="none"
+                        stroke="#2fd6a0"
+                        stroke-width="8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"/>
+
+                    <path d="M108 97 H155"
+                        stroke="#6c3fe0"
+                        stroke-width="8"
+                        stroke-linecap="round"/>
+
+                    <circle cx="183" cy="29" r="17"
+                        fill="#ffd23f"
+                        stroke="#2b1f55"
+                        stroke-width="3"/>
+
+                    <text x="183" y="36"
+                        text-anchor="middle"
+                        font-size="22"
+                        font-weight="700"
+                        fill="#2b1f55">?</text>
+
+                </svg>
+
+            </div>
+
+        </section>
+
+
+        <div class="row g-4 align-items-start mt-3">
+
+            <!-- ÁREA DAS QUESTÕES -->
+            <section class="col-lg-8" aria-labelledby="tituloQuestao">
+
+                <div class="card shadow-sm question-card">
+
+                    <div class="card-body">
+
+                        <div class="questao-cabecalho">
+
+                            <div class="d-flex flex-wrap gap-2 align-items-center">
+
+                                <span class="etapa-badge" id="etapa">
+                                    ETAPA 1 · AQUECIMENTO
+                                </span>
+
+                                <span class="nivel-badge" id="nivel">
+                                    Básico
+                                </span>
+
+                            </div>
+
+                            <span class="questao-contador" id="contador">
+                                Questão 1 de 24
+                            </span>
+
                         </div>
 
-                        <div class="progress mb-4"
-                             role="progressbar"
-                             aria-label="Progresso do questionário"
-                             aria-valuemin="0"
-                             aria-valuemax="100"
-                             aria-valuenow="0"
-                             id="barraProgresso">
+
+                        <!-- BARRA DE PROGRESSO -->
+                        <div class="progress questao-progresso"
+                            id="barraProgresso"
+                            role="progressbar"
+                            aria-label="Progresso dos exercícios"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                            aria-valuenow="0">
+
                             <div class="progress-bar" id="progresso"></div>
+
                         </div>
 
+
+                        <!-- CONTEÚDO DINÂMICO -->
                         <div id="areaQuestao">
-                            <h2 class="h5 mb-3" id="enunciado"></h2>
-                            <div id="conteudoQuestao" class="mb-3"></div>
-                            <div id="alternativas" class="alternativas"></div>
+
+                            <span class="categoria-questao" id="categoria">
+                                Conjuntos
+                            </span>
+
+                            <h2 class="h3 mt-3 mb-3" id="tituloQuestao">
+                                Questão
+                            </h2>
+
+                            <div id="conteudoQuestao" class="conteudo-questao"></div>
+
+                            <div id="alternativas"
+                                class="alternativas"
+                                role="radiogroup"
+                                aria-label="Escolha uma alternativa">
+                            </div>
+
                         </div>
 
-                        <div id="feedback"
-                             class="mt-4 d-none"
-                             aria-live="polite"></div>
 
-                        <div class="d-flex justify-content-end gap-2 mt-4">
-                            <button
-                                type="button"
+                        <!-- FEEDBACK -->
+                        <div id="feedback"
+                            class="feedback-box d-none"
+                            aria-live="polite">
+                        </div>
+
+
+                        <!-- BOTÕES -->
+                        <div class="acoes-questao">
+
+                            <button type="button"
                                 class="btn btn-primary"
                                 id="btnVerificar"
-                                disabled
-                            >
+                                disabled>
+
                                 Verificar resposta
+
                             </button>
 
-                            <button
-                                type="button"
+                            <button type="button"
                                 class="btn btn-primary d-none"
-                                id="btnProxima"
-                            >
-                                Próxima questão
+                                id="btnProxima">
+
+                                Próxima questão →
+
                             </button>
+
                         </div>
+
                     </div>
+
                 </div>
+
             </section>
 
-            <aside class="col-lg-4">
-                <div class="card shadow-sm">
-                    <div class="card-body p-4">
-                        <h2 class="h5">Seu desempenho</h2>
+
+            <!-- PAINEL DE DESEMPENHO -->
+            <aside class="col-lg-4" aria-labelledby="tituloDesempenho">
+
+                <div class="card desempenho-card">
+
+                    <div class="card-body">
+
+                        <span class="secao-etiqueta">
+                            SEU PROGRESSO
+                        </span>
+
+                        <h2 id="tituloDesempenho" class="h4 mt-3">
+                            Como você está indo?
+                        </h2>
+
                         <p class="text-secondary small">
-                            A pontuação é calculada pelas respostas corretas
-                            deste questionário.
+                            Sua pontuação é atualizada quando você
+                            verifica cada resposta.
                         </p>
 
+
                         <div class="estatistica">
-                            <span>Questões respondidas</span>
-                            <strong id="respondidas">0 de 8</strong>
+                            <span>Respondidas</span>
+                            <strong id="respondidas">0 de 24</strong>
                         </div>
 
                         <div class="estatistica">
@@ -143,43 +293,84 @@
                             <strong id="erros">0</strong>
                         </div>
 
-                        <hr>
-
                         <div class="estatistica">
-                            <span>Pontuação</span>
+                            <span>Aproveitamento</span>
                             <strong id="pontuacao">0%</strong>
                         </div>
 
-                        <p class="text-secondary small mt-3 mb-0">
-                            Leia a explicação após cada resposta para revisar
-                            os conceitos em que tiver dificuldade.
-                        </p>
+
+                        <hr>
+
+
+                        <h3 class="h6">
+                            O que você vai praticar
+                        </h3>
+
+                        <ul class="topicos-lista">
+
+                            <li>Conjuntos e operações</li>
+                            <li>Pertinência e inclusão</li>
+                            <li>Proposições e conectivos</li>
+                            <li>Quantificadores</li>
+                            <li>Tabelas-verdade</li>
+                            <li>Equivalências lógicas</li>
+
+                        </ul>
+
                     </div>
+
                 </div>
+
             </aside>
+
         </div>
 
+
+        <!-- RESULTADO FINAL -->
         <section id="resultadoFinal"
-                 class="card shadow-sm mt-4 d-none"
-                 aria-live="polite">
-            <div class="card-body p-4 text-center">
-                <h2 class="h3">Questionário concluído!</h2>
+            class="card resultado-card d-none mt-4"
+            aria-live="polite">
+
+            <div class="card-body text-center">
+
+                <span class="secao-etiqueta">
+                    FIM DO DESAFIO
+                </span>
+
+                <h2 class="h2 mt-3">
+                    Você concluiu as três etapas!
+                </h2>
+
                 <p id="mensagemFinal" class="text-secondary"></p>
-                <div class="resultado-final-numero" id="notaFinal">0/8</div>
-                <p id="resumoFinal"></p>
+
+                <div class="resultado-final-numero" id="notaFinal">
+                    0/24
+                </div>
+
+                <p id="resumoFinal" class="resultado-resumo"></p>
 
                 <button class="btn btn-primary" id="btnReiniciar">
-                    Refazer exercícios
+                    Refazer os exercícios
                 </button>
+
+                <a href="index.html" class="btn btn-outline-primary ms-2">
+                    Voltar ao aprendizado
+                </a>
+
             </div>
+
         </section>
+
     </main>
+
 
     <footer class="container py-4 text-center text-secondary small">
         TautoLab — Aprender lógica faz sentido.
     </footer>
 
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/exercicios.js"></script>
+
 </body>
 </html>

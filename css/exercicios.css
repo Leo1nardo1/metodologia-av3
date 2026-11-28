@@ -1,97 +1,390 @@
-.pagina-exercicios #areaQuestao {
-  background: #fff8e1;
-  border: 3px dashed var(--sun);
-  border-radius: 24px;
-  padding: 1.4rem;
+.pagina-exercicios .secao-etiqueta {
+    display: inline-block;
+    color: #4a24b8;
+    background: #ffd23f;
+    border-radius: 999px;
+    padding: .3rem .85rem;
+    font: 700 .78rem var(--font-title);
+    letter-spacing: .06em;
 }
-.pagina-exercicios #enunciado { font-size: 1.4rem; line-height: 1.45; }
-.pagina-exercicios .badge.text-bg-primary {
-  background: var(--mint) !important;
-  color: #07422d !important;
-  font-family: var(--font-title);
-  border-radius: 999px;
-  padding: .55rem 1rem;
-  font-size: .95rem;
-  font-weight: 600;
-  box-shadow: 0 3px 0 #1fb887;
+
+
+/* CABEÇALHO */
+
+.pagina-exercicios .exercicios-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 220px;
+    gap: 1.5rem;
+    align-items: center;
+    padding: clamp(1.5rem, 4vw, 2.7rem);
+    color: #fff;
+    border-radius: 32px;
+    background: linear-gradient(135deg, #7044df, #4a24b8);
+    box-shadow: 0 9px 0 #35178e;
 }
-.pagina-exercicios #contador { font-family: var(--font-title); font-weight: 600; color: var(--muted); }
-.pagina-exercicios .progress {
-  height: 20px;
-  border-radius: 99px;
-  background: var(--lilac);
-  border: 3px solid #fff;
-  box-shadow: inset 0 2px 0 rgba(74, 36, 184, .12);
-  overflow: hidden;
+
+.pagina-exercicios .exercicios-hero h1 {
+    color: #fff;
+    margin: .8rem 0 .6rem;
+    font-size: clamp(2rem, 4vw, 3rem);
 }
-.pagina-exercicios .progress-bar {
-  background: repeating-linear-gradient(-45deg, var(--mint) 0 14px, #5fe8bd 14px 28px);
-  border-radius: 99px;
-  transition: width .4s ease;
+
+.pagina-exercicios .exercicios-hero p {
+    color: #f4edff;
+    max-width: 720px;
+    font-size: 1.08rem;
 }
-.pagina-exercicios .alternativas { display: grid; gap: .9rem; }
-.pagina-exercicios .alternativas label,
-.pagina-exercicios .alternativas .form-check,
-.pagina-exercicios .alternativas button {
-  display: block;
-  width: 100%;
-  text-align: left;
-  padding: 1rem 1.2rem;
-  border: 3px solid #e1d8fa;
-  border-radius: 20px;
-  background: #fff;
-  color: var(--ink);
-  cursor: pointer;
-  font-weight: 800;
-  font-size: 1.1rem;
-  box-shadow: 0 5px 0 #e1d8fa;
-  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+
+.exercicios-hero-arte svg {
+    display: block;
+    width: 100%;
+    height: auto;
 }
-.pagina-exercicios .alternativas label:hover,
-.pagina-exercicios .alternativas .form-check:hover,
-.pagina-exercicios .alternativas button:hover {
-  border-color: var(--violet);
-  box-shadow: 0 7px 0 var(--violet);
-  transform: translateY(-2px);
+
+.etapas-resumo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem;
+    margin-top: 1.2rem;
 }
-.pagina-exercicios .alternativas button:active { transform: translateY(4px); box-shadow: 0 1px 0 var(--violet); }
-.pagina-exercicios .alternativas .form-check:has(input:checked) {
-  border-color: var(--violet);
-  background: var(--lilac);
-  box-shadow: 0 5px 0 var(--violet);
+
+.etapas-resumo span {
+    padding: .4rem .8rem;
+    border-radius: 999px;
+    background: rgba(255,255,255,.15);
+    font-weight: 800;
 }
+
+.etapas-resumo b {
+    color: #ffd23f;
+    margin-right: .25rem;
+}
+
+
+/* CARTÕES */
+
+.question-card,
+.desempenho-card,
+.resultado-card {
+    border: 3px solid #fff !important;
+}
+
+
+/* CABEÇALHO DA QUESTÃO */
+
+.questao-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .8rem;
+    margin-bottom: 1rem;
+}
+
+.etapa-badge,
+.nivel-badge,
+.categoria-questao {
+    display: inline-block;
+    border-radius: 999px;
+    padding: .38rem .8rem;
+    font: 800 .82rem var(--font-title);
+}
+
+.etapa-badge {
+    background: #efe8ff;
+    color: #4a24b8;
+}
+
+.nivel-badge {
+    background: #fff3c2;
+    color: #705000;
+}
+
+.questao-contador {
+    color: var(--muted);
+    font: 700 .92rem var(--font-title);
+}
+
+
+/* PROGRESSO */
+
+.questao-progresso {
+    height: 15px;
+    margin-bottom: 1.5rem;
+    border-radius: 999px;
+    background: #efe8ff;
+    overflow: hidden;
+}
+
+.questao-progresso .progress-bar {
+    background: linear-gradient(90deg, #2fd6a0, #5cc8ff);
+    border-radius: 999px;
+    transition: width .35s ease;
+}
+
+
+/* CONTEÚDO DA QUESTÃO */
+
+.categoria-questao {
+    padding: .28rem .7rem;
+    background: #e6f7ff;
+    color: #124a66;
+}
+
+.conteudo-questao {
+    margin-bottom: 1.1rem;
+    color: #51466e;
+}
+
+.conteudo-questao p:last-child {
+    margin-bottom: 0;
+}
+
+.conteudo-questao .table {
+    max-width: 430px;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.conteudo-questao .table th {
+    background: #efe8ff;
+    color: #2b1f55;
+}
+
+
+/* ALTERNATIVAS */
+
+.alternativas {
+    display: grid;
+    gap: .75rem;
+    margin-top: 1.1rem;
+}
+
+.opcao-resposta {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    width: 100%;
+    margin: 0;
+    padding: .9rem 1rem;
+    border: 2px solid #e1d8fa;
+    border-radius: 16px;
+    background: #fff;
+    color: var(--ink);
+    cursor: pointer;
+    font-weight: 800;
+    line-height: 1.45;
+    transition:
+        border-color .15s ease,
+        background .15s ease,
+        transform .15s ease;
+}
+
+.opcao-resposta:hover {
+    border-color: #6c3fe0;
+    transform: translateY(-1px);
+}
+
+.opcao-resposta.selecionada {
+    border-color: #6c3fe0;
+    background: #f4efff;
+}
+
+.opcao-resposta input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.opcao-letra {
+    display: grid;
+    flex: 0 0 34px;
+    width: 34px;
+    height: 34px;
+    place-items: center;
+    border-radius: 11px;
+    background: #efe8ff;
+    color: #4a24b8;
+    font: 800 1rem var(--font-title);
+}
+
+.opcao-texto {
+    min-width: 0;
+}
+
+
+/* RESPOSTAS CORRETAS E INCORRETAS */
+
+.opcao-resposta.correta {
+    border-color: #1eaa78;
+    background: #e6fbf2;
+}
+
+.opcao-resposta.correta .opcao-letra {
+    color: #fff;
+    background: #1eaa78;
+}
+
+.opcao-resposta.incorreta {
+    border-color: #e05c5c;
+    background: #fff0f0;
+}
+
+.opcao-resposta.incorreta .opcao-letra {
+    color: #fff;
+    background: #e05c5c;
+}
+
+.opcao-resposta.bloqueada {
+    cursor: default;
+    transform: none;
+}
+
+.opcao-resposta.bloqueada:hover {
+    transform: none;
+}
+
+
+/* FEEDBACK */
+
+.feedback-box {
+    margin-top: 1.2rem;
+    padding: 1rem 1.1rem;
+    border-radius: 17px;
+    border: 2px solid;
+}
+
+.feedback-box h3 {
+    font-size: 1.05rem;
+    margin-bottom: .4rem;
+}
+
+.feedback-box p {
+    margin: 0;
+}
+
+.feedback-correto {
+    border-color: #2fd6a0;
+    background: #e6fbf2;
+    color: #14563e;
+}
+
+.feedback-incorreto {
+    border-color: #ff9b9b;
+    background: #fff0f0;
+    color: #7e2929;
+}
+
+
+/* BOTÕES */
+
+.acoes-questao {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: .7rem;
+    margin-top: 1.4rem;
+}
+
+
+/* ESTATÍSTICAS */
+
+.desempenho-card {
+    position: sticky;
+    top: 1rem;
+}
+
 .pagina-exercicios .estatistica {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  align-items: center;
-  padding: .8rem 0;
-  border-bottom: 3px dotted #e1d8fa;
-  color: var(--muted);
-  font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    gap: .8rem;
+    align-items: center;
+    padding: .75rem 0;
+    border-bottom: 1px dashed #ddd3f7;
+    color: var(--muted);
+    font-weight: 800;
 }
+
 .pagina-exercicios .estatistica strong {
-  font-family: var(--font-title);
-  color: var(--violet-dark);
-  background: var(--lilac);
-  border-radius: 14px;
-  padding: .3rem .8rem;
-  font-size: 1.15rem;
+    color: #4a24b8;
+    background: #efe8ff;
+    border-radius: 11px;
+    padding: .25rem .65rem;
+    white-space: nowrap;
 }
-.pagina-exercicios .resultado-final-numero {
-  display: inline-grid;
-  place-items: center;
-  min-width: 150px;
-  min-height: 150px;
-  margin: .8rem auto 1.2rem;
-  padding: 1rem;
-  border-radius: 50%;
-  color: #fff;
-  font-family: var(--font-title);
-  font-size: 2.8rem;
-  font-weight: 700;
-  background: var(--violet);
-  border: 6px solid var(--sun);
-  box-shadow: 0 10px 0 var(--violet-dark);
-  transform: rotate(-4deg);
+
+.topicos-lista {
+    padding-left: 1.2rem;
+    margin-bottom: 0;
+    color: var(--muted);
+}
+
+.topicos-lista li {
+    padding: .12rem 0;
+}
+
+
+/* RESULTADO FINAL */
+
+.resultado-card .card-body {
+    padding: clamp(1.5rem, 4vw, 3rem) !important;
+}
+
+.resultado-final-numero {
+    display: grid;
+    place-items: center;
+    width: 145px;
+    height: 145px;
+    margin: 1rem auto;
+    border: 6px solid #ffd23f;
+    border-radius: 50%;
+    background: #6c3fe0;
+    color: #fff;
+    font: 700 2.4rem var(--font-title);
+    box-shadow: 0 8px 0 #4a24b8;
+}
+
+.resultado-resumo {
+    max-width: 700px;
+    margin: 0 auto 1.3rem;
+    color: var(--muted);
+}
+
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 991px) {
+
+    .desempenho-card {
+        position: static;
+    }
+
+}
+
+@media (max-width: 767px) {
+
+    .pagina-exercicios .exercicios-hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .etapas-resumo {
+        justify-content: center;
+    }
+
+    .exercicios-hero-arte {
+        max-width: 180px;
+        margin: 0 auto;
+    }
+
+    .acoes-questao .btn {
+        width: 100%;
+    }
+
+    .resultado-card .btn {
+        width: 100%;
+        margin: .35rem 0 !important;
+    }
+
 }

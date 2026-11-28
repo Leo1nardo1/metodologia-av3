@@ -1,30 +1,35 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TautoLab - Aprender brincando</title>
-    <!-- Bootstrap 5.3.8 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <!-- CSS -->
+    <meta name="description"
+        content="Aprenda teoria dos conjuntos e lógica matemática com exemplos, atividades e explicações simples.">
+    <title>TautoLab | Aprenda conjuntos e lógica</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/inicio.css">
 </head>
 
 <body class="pagina-aprender">
 
-    <!-- Navbar Simples -->
     <nav class="navbar navbar-expand-lg navbar-tauto">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html"><span class="brand-mark" aria-hidden="true">✦</span> TautoLab</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <span class="brand-mark" aria-hidden="true">✦</span> TautoLab
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menu">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Aprender</a>
+                        <a class="nav-link active" aria-current="page" href="index.html">Aprender</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="exercicios.html">Exercícios</a>
@@ -40,373 +45,884 @@
         </div>
     </nav>
 
-    <!-- Conteúdo Principal -->
-    <main class="container my-5">
+    <main class="container py-5">
 
-        <!-- HERO SECTION -->
-        <section class="hero" aria-labelledby="tituloHero">
-            <div class="hero-texto">
-                <span class="hero-selo">✦ Aprender brincando</span>
-                <h2 class="hero-titulo" id="tituloHero">
-                    Descubra a <span class="destaque">matemática</span> do jeito divertido!
-                </h2>
-                <p class="hero-descricao">
-                    Conjuntos, lógica e tabelas-verdade com explicações simples,
-                    desafios e um laboratório para testar tudo.
+        <!-- APRESENTAÇÃO -->
+        <section class="inicio-hero" aria-labelledby="tituloPrincipal">
+
+            <div class="inicio-hero-texto">
+
+                <span class="hero-selo">✦ Aprender fazendo</span>
+
+                <h1 id="tituloPrincipal">
+                    A matemática fica mais fácil quando você
+                    <span>experimenta!</span>
+                </h1>
+
+                <p>
+                    Descubra como organizar informações com conjuntos
+                    e como usar a lógica para resolver situações do dia a dia.
                 </p>
-                <div class="hero-botoes">
-                    <a href="#accordionAprender" class="btn btn-primary btn-lg">Começar agora</a>
-                    <a href="simulador.html" class="btn btn-outline-primary btn-lg">Abrir o simulador</a>
+
+                <div class="d-flex flex-wrap gap-3 mt-4">
+                    <a class="btn btn-primary btn-lg" href="#trilhas">
+                        Começar a aprender
+                    </a>
+
+                    <a class="btn btn-outline-primary btn-lg" href="exercicios.html">
+                        Praticar agora
+                    </a>
                 </div>
-                <ul class="hero-numeros">
-                    <li><strong>3</strong> módulos</li>
-                    <li><strong>15</strong> desafios</li>
-                    <li><strong>2</strong> simuladores</li>
-                    <li><strong>1</strong> jogo</li>
-                </ul>
+
+                <div class="hero-tags" aria-label="Conteúdos do aplicativo">
+                    <span>Conjuntos</span>
+                    <span>Raciocínio lógico</span>
+                    <span>Desafios</span>
+                </div>
+
             </div>
 
-            <div class="hero-arte" aria-hidden="true">
-                <div class="venn">
-                    <span class="venn-a">A</span>
-                    <span class="venn-b">B</span>
-                </div>
-                <span class="simbolo s1">∪</span>
-                <span class="simbolo s2">∈</span>
-                <span class="simbolo s3">∀</span>
-                <span class="simbolo s4">→</span>
-                <span class="simbolo s5">∧</span>
+            <!-- ILUSTRAÇÃO SVG -->
+            <div class="inicio-hero-arte" aria-hidden="true">
+                <svg viewBox="0 0 420 300" role="presentation">
+
+                    <rect x="35" y="35" width="350" height="230" rx="34" fill="#ffffff" opacity=".16" />
+
+                    <circle cx="170" cy="145" r="82" fill="#2fd6a0" fill-opacity=".88" stroke="#ffffff"
+                        stroke-width="5" />
+
+                    <circle cx="250" cy="145" r="82" fill="#ffd23f" fill-opacity=".82" stroke="#ffffff"
+                        stroke-width="5" />
+
+                    <text x="128" y="151" font-size="28" font-weight="700" fill="#2b1f55">A</text>
+
+                    <text x="278" y="151" font-size="28" font-weight="700" fill="#2b1f55">B</text>
+
+                    <text x="210" y="153" font-size="20" font-weight="700" text-anchor="middle" fill="#2b1f55">A ∩
+                        B</text>
+
+                    <rect x="52" y="20" width="66" height="54" rx="16" fill="#ffffff" />
+
+                    <text x="85" y="57" font-size="31" text-anchor="middle" fill="#6c3fe0">∈</text>
+
+                    <rect x="310" y="220" width="70" height="54" rx="16" fill="#ffffff" />
+
+                    <text x="345" y="257" font-size="31" text-anchor="middle" fill="#ff6b6b">∪</text>
+
+                    <circle cx="360" cy="65" r="18" fill="#ff6b6b" />
+                    <circle cx="63" cy="230" r="13" fill="#5cc8ff" />
+
+                </svg>
             </div>
+
         </section>
 
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <span class="text-primary fw-semibold">
-                    MÓDULO 1
-                </span>
-                <h1 class="fw-bold mt-2">
-                    Fundamentos
-                </h1>
-                <p class="lead text-muted">Aprenda os conceitos básicos de conjuntos e lógica matemática.</p>
 
-                <!-- Accordion para organizar os tópicos -->
-                <div class="accordion" id="accordionAprender">
+        <!-- APRESENTAÇÃO DAS TRILHAS -->
+        <section id="trilhas" class="trilhas-intro">
 
-                    <!-- Tópico 1: Conjuntos -->
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#topico1" aria-expanded="true">
-                                1. Conceito de Conjunto e Elementos
-                            </button>
+            <span class="secao-etiqueta">
+                ESCOLHA POR ONDE COMEÇAR
+            </span>
+
+            <h2>Dois caminhos para aprender</h2>
+
+            <p>
+                Primeiro, vamos organizar informações.
+                Depois, usar essas informações para pensar com lógica.
+            </p>
+
+        </section>
+
+
+        <div class="trilhas-grid">
+
+            <!-- ================================= -->
+            <!-- TRILHA 1 - APRENDENDO A ORGANIZAR -->
+            <!-- ================================= -->
+
+            <section class="trilha-card trilha-organizar" aria-labelledby="tituloOrganizar">
+
+                <div class="trilha-topo">
+
+                    <div>
+                        <span class="trilha-numero">TRILHA 1</span>
+
+                        <h2 id="tituloOrganizar">
+                            Aprendendo a organizar
                         </h2>
-                        <div id="topico1" class="accordion-collapse collapse show" data-bs-parent="#accordionAprender">
-                            <div class="accordion-body">
-                                <p>Um <strong>conjunto</strong> é uma coleção bem-definida de objetos, chamados de
-                                    <strong>elementos</strong>. Geralmente representamos conjuntos por letras maiúsculas
-                                    (A, B, C) e seus elementos entre chaves.
-                                </p>
-                                <p><strong>Exemplo:</strong> O conjunto das vogais.</p>
-                                <p><span class="chip">V = {a, e, i, o, u}</span></p>
-                                <hr>
-                                <h6>Tipos de Conjuntos:</h6>
-                                <ul>
-                                    <li><strong>Unitário:</strong> Possui apenas um elemento. Ex: <span class="chip">{2}</span> ou <span class="chip">A = {Lua}</span>.</li>
-                                    <li><strong>Vazio:</strong> Não possui elementos. Representado por <span class="chip">∅</span> ou <span class="chip">{ }</span>.</li>
-                                    <li><strong>Infinito:</strong> Possui infinitos elementos. Ex: Conjunto dos números naturais <span class="chip">ℕ = {0, 1, 2, 3, ...}</span>.</li>
-                                    <li><strong>Finito:</strong> Possui uma quantidade limitada de elementos. Ex: <span class="chip">A = {1, 2, 3}</span> ou os dias da semana.</li>
-                                </ul>
-                            </div>
-                        </div>
+
+                        <p>
+                            Aprenda a reunir, separar e comparar elementos.
+                        </p>
                     </div>
 
-                    <!-- Tópico 2: Pertinência e Inclusão -->
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#topico2">
-                                2. Pertinência e Inclusão
-                            </button>
-                        </h2>
-                        <div id="topico2" class="accordion-collapse collapse" data-bs-parent="#accordionAprender">
-                            <div class="accordion-body">
-                                <p>Imagine uma <strong>caixa de lápis de cor</strong> 🖍️. A caixa é o <strong>conjunto</strong> e cada lápis é um <strong>elemento</strong>.</p>
-                                <p class="mb-2">Vamos chamar a nossa caixa de <span class="chip">C = {vermelho, azul, verde}</span></p>
+                    <!-- ILUSTRAÇÃO DE CONJUNTOS -->
+                    <div class="trilha-ilustracao" aria-hidden="true">
+                        <svg viewBox="0 0 150 120">
+                            
+                            <circle cx="48" cy="58" r="43" fill="#2fd6a0" fill-opacity=".85" stroke="#2b1f55"
+                                stroke-width="3" />
 
-                                <div class="alert alert-info">
-                                    <strong>∈ "pertence"</strong> 📦<br>
-                                    Responde: <em>"Este lápis está dentro da caixa?"</em><br>
-                                    <span class="chip">vermelho ∈ C</span> → o lápis vermelho <strong>está</strong> na caixa. ✅<br>
-                                    <span class="chip">rosa ∉ C</span> → o lápis rosa <strong>não está</strong> na caixa. ❌
+                            
+                            <circle cx="102" cy="58" r="43" fill="#ffd23f" fill-opacity=".82" stroke="#2b1f55"
+                                stroke-width="3" />
+
+                           
+                            <text x="32" y="63" font-size="18" font-weight="700" fill="#2b1f55">A</text>
+
+            
+                            <text x="118" y="63" font-size="18" font-weight="700" fill="#2b1f55">B</text>
+                        </svg>
+                    </div>
+
+                </div>
+
+
+                <div class="trilha-passo">
+                    <span>1</span>
+
+                    <div>
+                        <strong>Conheça os conjuntos</strong>
+                        <small>Entenda o que é um grupo de elementos.</small>
+                    </div>
+                </div>
+
+
+                <div class="accordion trilha-accordion" id="accordionConjuntos">
+
+                    <!-- TÓPICO 1 -->
+                    <article class="accordion-item">
+
+                        <h3 class="accordion-header" id="conjuntosTitulo1">
+
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#conjuntos1" aria-expanded="true" aria-controls="conjuntos1">
+
+                                O que é um conjunto?
+
+                            </button>
+
+                        </h3>
+
+                        <div id="conjuntos1" class="accordion-collapse collapse show" aria-labelledby="conjuntosTitulo1"
+                            data-bs-parent="#accordionConjuntos">
+
+                            <div class="accordion-body">
+
+                                <p>
+                                    Um <strong>conjunto</strong> é um grupo de elementos
+                                    que têm alguma característica em comum.
+                                </p>
+
+                                <div class="exemplo-visual">
+
+                                    <span class="exemplo-titulo">
+                                        Exemplo: frutas que estão na cesta
+                                    </span>
+
+                                    <div class="frutas-lista">
+                                        <span>🍎 Maçã</span>
+                                        <span>🍌 Banana</span>
+                                        <span>🍇 Uva</span>
+                                    </div>
+
+                                    <div class="notacao">
+                                        F = {maçã, banana, uva}
+                                    </div>
+
                                 </div>
 
-                                <p class="mt-4">Agora imagine <strong>uma caixa pequena dentro de uma caixa maior</strong>, como as bonecas russas 🪆.</p>
-                                <p class="mb-2">Veja: <span class="chip">A = {1, 2}</span> e <span class="chip">B = {1, 2, 3, 4}</span></p>
+                                <p>
+                                    Cada fruta é um <strong>elemento</strong>
+                                    do conjunto F. Costumamos usar letras maiúsculas
+                                    para dar nome aos conjuntos e chaves para listar
+                                    seus elementos.
+                                </p>
 
-                                <div class="alert alert-warning">
-                                    <strong>⊂ "está contido"</strong> 🪆<br>
-                                    Todo mundo de A também está em B. Por isso a caixa A cabe dentro da caixa B.<br>
-                                    <span class="chip">A ⊂ B</span> → "A está contido em B". ✅<br>
-                                    <span class="chip">B ⊃ A</span> → o contrário: "B contém A".
+                                <h4 class="h6 mt-4">Alguns tipos de conjuntos</h4>
+
+                                <ul class="mb-0">
+                                    <li>
+                                        <strong>Unitário:</strong>
+                                        tem apenas um elemento.
+                                        Ex.: A = {Sol}.
+                                    </li>
+
+                                    <li>
+                                        <strong>Vazio:</strong>
+                                        não tem elementos.
+                                        É representado por ∅.
+                                    </li>
+
+                                    <li>
+                                        <strong>Finito:</strong>
+                                        tem uma quantidade limitada de elementos.
+                                        Ex.: dias da semana.
+                                    </li>
+
+                                    <li>
+                                        <strong>Infinito:</strong>
+                                        não termina.
+                                        Ex.: números naturais
+                                        ℕ = {0, 1, 2, 3, ...}.
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+                    </article>
+
+
+                    <!-- TÓPICO 2 -->
+                    <article class="accordion-item">
+
+                        <h3 class="accordion-header" id="conjuntosTitulo2">
+
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#conjuntos2" aria-expanded="false" aria-controls="conjuntos2">
+
+                                Elementos, pertinência e inclusão
+
+                            </button>
+
+                        </h3>
+
+                        <div id="conjuntos2" class="accordion-collapse collapse" aria-labelledby="conjuntosTitulo2"
+                            data-bs-parent="#accordionConjuntos">
+
+                            <div class="accordion-body">
+
+                                <p>
+                                    Imagine uma caixa com materiais escolares.
+                                    Se o lápis está dentro da caixa, ele pertence
+                                    ao conjunto.
+                                </p>
+
+                                <div class="alert alert-info mb-3">
+
+                                    <strong>Pertence: ∈</strong><br>
+
+                                    C = {lápis, borracha, régua}<br>
+
+                                    lápis <strong>∈ C</strong>
+                                    (o lápis está no conjunto).<br>
+
+                                    tesoura <strong>∉ C</strong>
+                                    (a tesoura não está no conjunto).
+
+                                </div>
+
+                                <p>
+                                    Agora imagine uma caixa menor que guarda apenas
+                                    alguns elementos que também estão na caixa maior.
+                                    Isso representa a <strong>inclusão</strong>.
+                                </p>
+
+                                <div class="alert alert-warning mb-3">
+
+                                    <strong>Está contido: ⊆</strong><br>
+
+                                    A = {2, 4} e B = {2, 4, 6, 8}.<br>
+
+                                    Como todos os elementos de A também estão em B,
+                                    podemos escrever <strong>A ⊆ B</strong>.
+
                                 </div>
 
                                 <div class="dica">
-                                    💡 <strong>Como não se confundir?</strong>
-                                    <ul class="mb-0">
-                                        <li><strong>∈</strong> liga <strong>um objeto</strong> a uma caixa (um lápis → a caixa).</li>
-                                        <li><strong>⊂</strong> liga <strong>uma caixa</strong> a outra caixa.</li>
-                                    </ul>
+                                    <strong>Não confunda:</strong>
+                                    ∈ relaciona um elemento a um conjunto.
+                                    ⊆ relaciona um conjunto a outro conjunto.
                                 </div>
+
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Tópico 3: Frases e Proposições -->
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
+                    </article>
+
+
+                    <!-- TÓPICO 3 -->
+                    <article class="accordion-item">
+
+                        <h3 class="accordion-header" id="conjuntosTitulo3">
+
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#topico3">
-                                3. Frases e Proposições
+                                data-bs-target="#conjuntos3" aria-expanded="false" aria-controls="conjuntos3">
+
+                                União e interseção
+
                             </button>
-                        </h2>
-                        <div id="topico3" class="accordion-collapse collapse" data-bs-parent="#accordionAprender">
+
+                        </h3>
+
+                        <div id="conjuntos3" class="accordion-collapse collapse" aria-labelledby="conjuntosTitulo3"
+                            data-bs-parent="#accordionConjuntos">
+
                             <div class="accordion-body">
-                                <p>Nem toda frase é uma proposição. Uma <strong>proposição</strong> é uma sentença
-                                    declarativa que pode ser classificada como <strong>Verdadeira (V)</strong> ou
-                                    <strong>Falsa (F)</strong>, nunca os dois ao mesmo tempo.
+
+                                <p>
+                                    Imagine dois grupos de estudantes:
+                                    um grupo gosta de futebol e outro gosta de vôlei.
                                 </p>
-                                <div class="alert alert-success">
-                                    <strong>É proposição (tem valor V ou F):</strong> ✅
-                                    <ul class="mb-0 mt-1">
-                                        <li>"O Brasil fica na América do Sul." → <span class="chip">Verdadeiro (V)</span></li>
-                                        <li>"2 + 2 = 5." → <span class="chip">Falso (F)</span></li>
-                                        <li>"Salvador é a capital da Bahia." → <span class="chip">Verdadeiro (V)</span></li>
-                                    </ul>
+
+                                <p>
+                                    A = {Ana, Beto, Caio}<br>
+                                    B = {Beto, Duda, Eva}
+                                </p>
+
+                                <div class="alert alert-info">
+
+                                    <strong>União (A ∪ B) — juntar os grupos</strong><br>
+
+                                    Reúne todos os nomes, sem repetir quem aparece
+                                    nos dois grupos.<br>
+
+                                    <strong>
+                                        A ∪ B = {Ana, Beto, Caio, Duda, Eva}
+                                    </strong>
+
                                 </div>
-                                <div class="alert alert-danger mb-0">
-                                    <strong>Não é proposição (não dá para julgar V ou F):</strong> ❌
-                                    <ul class="mb-0 mt-1">
-                                        <li>"Qual é o seu nome?" (Pergunta)</li>
-                                        <li>"Estude para a prova!" (Ordem / Imperativo)</li>
-                                        <li>"x + 2 = 5" (Sentença aberta — não sabemos quem é o <em>x</em>)</li>
-                                    </ul>
+
+                                <div class="alert alert-warning mb-0">
+
+                                    <strong>Interseção (A ∩ B) — o que há em comum</strong><br>
+
+                                    Mostra quem aparece nos dois grupos ao mesmo tempo.<br>
+
+                                    <strong>A ∩ B = {Beto}</strong>
+
                                 </div>
+
                             </div>
                         </div>
+
+                    </article>
+
+
+                    <!-- TÓPICO 4 -->
+                    <article class="accordion-item">
+
+                        <h3 class="accordion-header" id="conjuntosTitulo4">
+
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#conjuntos4" aria-expanded="false" aria-controls="conjuntos4">
+
+                                Diferença e complemento
+
+                            </button>
+
+                        </h3>
+
+                        <div id="conjuntos4" class="accordion-collapse collapse" aria-labelledby="conjuntosTitulo4"
+                            data-bs-parent="#accordionConjuntos">
+
+                            <div class="accordion-body">
+
+                                <p>
+                                    Considere A = {1, 2, 3, 4} e B = {3, 4, 5}.
+                                    Também vamos considerar o universo
+                                    U = {1, 2, 3, 4, 5, 6}.
+                                </p>
+
+                                <div class="alert alert-info">
+
+                                    <strong>Diferença (A − B) — o que ficou só em A</strong><br>
+
+                                    Retiramos de A os elementos que também aparecem em B.<br>
+
+                                    <strong>A − B = {1, 2}</strong>
+
+                                </div>
+
+                                <div class="alert alert-warning mb-0">
+
+                                    <strong>Complemento de A — o que ficou fora de A</strong><br>
+
+                                    Procuramos no universo U os elementos que não estão em A.<br>
+
+                                    <strong>Aᶜ = {5, 6}</strong>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </article>
+
+                </div>
+            </section>
+
+
+            <!-- =============================== -->
+            <!-- TRILHA 2 - APRENDENDO A PENSAR -->
+            <!-- =============================== -->
+
+            <section class="trilha-card trilha-pensar" aria-labelledby="tituloPensar">
+
+                <div class="trilha-topo">
+
+                    <div>
+                        <span class="trilha-numero">TRILHA 2</span>
+
+                        <h2 id="tituloPensar">
+                            Aprendendo a pensar
+                        </h2>
+
+                        <p>
+                            Use afirmações e regras para descobrir
+                            o que é verdadeiro ou falso.
+                        </p>
                     </div>
 
-                    <!-- Tópico 4: Conectivos Lógicos -->
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#topico4">
-                                4. Conectivos Lógicos
+                    <!-- ILUSTRAÇÃO DE LÓGICA -->
+                    <div class="trilha-ilustracao ilustracao-logica" aria-hidden="true">
+
+                        <svg viewBox="0 0 150 120">
+
+                            <rect x="8" y="18" width="54" height="54" rx="15" fill="#ffffff" stroke="#6c3fe0"
+                                stroke-width="4" />
+
+                            <rect x="88" y="18" width="54" height="54" rx="15" fill="#ffffff" stroke="#ff6b6b"
+                                stroke-width="4" />
+
+                            <text x="35" y="54" font-size="24" font-weight="700" text-anchor="middle"
+                                fill="#6c3fe0">P</text>
+
+                            <text x="115" y="54" font-size="24" font-weight="700" text-anchor="middle"
+                                fill="#ff6b6b">Q</text>
+
+                            <path d="M62 45 H88" stroke="#2b1f55" stroke-width="4" stroke-linecap="round" />
+
+                            <circle cx="75" cy="45" r="17" fill="#ffd23f" stroke="#2b1f55" stroke-width="3" />
+
+                            <text x="75" y="52" font-size="21" font-weight="700" text-anchor="middle"
+                                fill="#2b1f55">E</text>
+
+                            <path d="M75 73 V93" stroke="#2b1f55" stroke-width="4" stroke-linecap="round" />
+
+                            <rect x="42" y="91" width="66" height="25" rx="12" fill="#2fd6a0" stroke="#2b1f55"
+                                stroke-width="3" />
+
+                        </svg>
+
+                    </div>
+
+                </div>
+
+
+                <div class="trilha-passo">
+                    <span>2</span>
+
+                    <div>
+                        <strong>Investigue as afirmações</strong>
+                        <small>
+                            Descubra como combinar ideias e analisar resultados.
+                        </small>
+                    </div>
+                </div>
+
+
+                <div class="accordion trilha-accordion" id="accordionLogica">
+
+                    <!-- TÓPICO 1 -->
+                    <article class="accordion-item">
+
+                        <h3 class="accordion-header" id="logicaTitulo1">
+
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#logica1" aria-expanded="true" aria-controls="logica1">
+
+                                Frases e proposições
+
                             </button>
-                        </h2>
-                        <div id="topico4" class="accordion-collapse collapse" data-bs-parent="#accordionAprender">
+
+                        </h3>
+
+                        <div id="logica1" class="accordion-collapse collapse show" aria-labelledby="logicaTitulo1"
+                            data-bs-parent="#accordionLogica">
+
                             <div class="accordion-body">
-                                <p>Os conectivos servem para combinar proposições simples e formar proposições
-                                    compostas.</p>
+
+                                <p>
+                                    Uma <strong>proposição</strong> é uma frase
+                                    declarativa que pode ser classificada como
+                                    verdadeira (V) ou falsa (F).
+                                </p>
+
+                                <div class="alert alert-success">
+
+                                    <strong>É uma proposição:</strong><br>
+
+                                    “A Terra gira ao redor do Sol.” — Verdadeira.<br>
+
+                                    “5 é maior que 9.” — Falsa.
+
+                                </div>
+
+                                <div class="alert alert-danger mb-0">
+
+                                    <strong>Não é uma proposição:</strong><br>
+
+                                    “Que horas são?” — é uma pergunta.<br>
+
+                                    “Feche a porta!” — é uma ordem.<br>
+
+                                    “x + 2 = 5” — depende do valor de x.
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </article>
+
+
+                    <!-- TÓPICO 2 -->
+                    <article class="accordion-item">
+
+                        <h3 class="accordion-header" id="logicaTitulo2">
+
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#logica2" aria-expanded="false" aria-controls="logica2">
+
+                                Os conectivos NÃO, E e OU
+
+                            </button>
+
+                        </h3>
+
+                        <div id="logica2" class="accordion-collapse collapse" aria-labelledby="logicaTitulo2"
+                            data-bs-parent="#accordionLogica">
+
+                            <div class="accordion-body">
+
+                                <p>
+                                    Os conectivos juntam ou modificam proposições.
+                                    Vamos começar pelos três mais comuns:
+                                </p>
+
+                                <ul>
+
+                                    <li>
+                                        <strong>NÃO (¬):</strong>
+                                        inverte o valor. Se “está chovendo”
+                                        é verdadeiro, “não está chovendo” é falso.
+                                    </li>
+
+                                    <li>
+                                        <strong>E (∧):</strong>
+                                        só é verdadeiro quando as duas partes
+                                        são verdadeiras.
+                                        Ex.: “Levei o caderno e o lápis”.
+                                    </li>
+
+                                    <li>
+                                        <strong>OU (∨):</strong>
+                                        é verdadeiro quando pelo menos uma parte
+                                        é verdadeira. Na lógica, as duas também
+                                        podem ser verdadeiras.
+                                    </li>
+
+                                </ul>
+
+                                <div class="dica">
+
+                                    <strong>Para lembrar:</strong>
+                                    no conectivo E, as duas condições precisam funcionar.
+                                    No OU, basta pelo menos uma.
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </article>
+
+
+                    <!-- TÓPICO 3 -->
+                    <article class="accordion-item">
+
+                        <h3 class="accordion-header" id="logicaTitulo3">
+
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#logica3" aria-expanded="false" aria-controls="logica3">
+
+                                SE... ENTÃO e SE, E SOMENTE SE
+
+                            </button>
+
+                        </h3>
+
+                        <div id="logica3" class="accordion-collapse collapse" aria-labelledby="logicaTitulo3"
+                            data-bs-parent="#accordionLogica">
+
+                            <div class="accordion-body">
+
+                                <p>
+                                    <strong>SE... ENTÃO (→)</strong>
+                                    apresenta uma condição e sua consequência.
+                                </p>
+
+                                <div class="alert alert-info">
+                                    “Se um número inteiro é múltiplo de 2,
+                                    então ele é par.”
+                                </div>
+
+                                <p>
+                                    <strong>SE, E SOMENTE SE (↔)</strong>
+                                    indica que as duas afirmações têm
+                                    o mesmo valor lógico.
+                                </p>
+
+                                <div class="alert alert-warning mb-0">
+                                    “Um número inteiro é par se,
+                                    e somente se, é divisível por 2.”
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </article>
+
+
+                    <!-- TÓPICO 4 -->
+                    <article class="accordion-item">
+
+                        <h3 class="accordion-header" id="logicaTitulo4">
+
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#logica4" aria-expanded="false" aria-controls="logica4">
+
+                                Quantificadores: TODOS e EXISTE
+
+                            </button>
+
+                        </h3>
+
+                        <div id="logica4" class="accordion-collapse collapse" aria-labelledby="logicaTitulo4"
+                            data-bs-parent="#accordionLogica">
+
+                            <div class="accordion-body">
+
+                                <p>
+                                    Quantificadores indicam quantos elementos
+                                    de um grupo atendem a uma condição.
+                                </p>
+
+                                <p>Considere U = {2, 4, 6}.</p>
+
+                                <div class="alert alert-info">
+
+                                    <strong>∀ — para todo (TODOS)</strong><br>
+
+                                    “Todos os elementos de U são pares.”
+                                    É verdadeiro, porque 2, 4 e 6 são pares.<br>
+
+                                    <span class="notacao">
+                                        ∀x ∈ U, x é par
+                                    </span>
+
+                                </div>
+
+                                <div class="dica mb-3">
+
+                                    <strong>Dica para demonstrar:</strong>
+                                    para confirmar uma afirmação com “TODOS”,
+                                    verifique todos os elementos.
+                                    Para mostrar que ela é falsa, basta encontrar
+                                    um elemento que não cumpra a condição.
+                                    Esse elemento é um <em>contraexemplo</em>.
+
+                                </div>
+
+                                <div class="alert alert-warning mb-0">
+
+                                    <strong>∃ — existe (PELO MENOS UM)</strong><br>
+
+                                    “Existe um elemento de U maior que 5.”
+                                    É verdadeiro, porque 6 atende à condição.<br>
+
+                                    <span class="notacao">
+                                        ∃x ∈ U, x &gt; 5
+                                    </span>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </article>
+
+
+                    <!-- TÓPICO 5 -->
+                    <article class="accordion-item">
+
+                        <h3 class="accordion-header" id="logicaTitulo5">
+
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#logica5" aria-expanded="false" aria-controls="logica5">
+
+                                Tabelas-verdade e equivalências
+
+                            </button>
+
+                        </h3>
+
+                        <div id="logica5" class="accordion-collapse collapse" aria-labelledby="logicaTitulo5"
+                            data-bs-parent="#accordionLogica">
+
+                            <div class="accordion-body">
+
+                                <p>
+                                    A <strong>tabela-verdade</strong> mostra
+                                    o resultado de uma expressão para todas
+                                    as combinações possíveis de valores
+                                    verdadeiros e falsos.
+                                </p>
+
+                                <p>Exemplo da expressão p ∧ q:</p>
+
                                 <div class="table-responsive">
-                                    <table class="table table-bordered align-middle">
+
+                                    <table class="table table-bordered table-sm text-center align-middle mb-3">
+
                                         <thead>
                                             <tr>
-                                                <th>Conectivo</th>
-                                                <th>Símbolo</th>
-                                                <th>Nome</th>
-                                                <th>Exemplo prático</th>
+                                                <th>p</th>
+                                                <th>q</th>
+                                                <th>p ∧ q</th>
                                             </tr>
                                         </thead>
+
                                         <tbody>
                                             <tr>
-                                                <td>NÃO</td>
-                                                <td><span class="chip">¬</span> ou <span class="chip">~</span></td>
-                                                <td>Negação</td>
-                                                <td>Inverte o valor: "Não está chovendo."</td>
+                                                <td>V</td>
+                                                <td>V</td>
+                                                <td><strong>V</strong></td>
                                             </tr>
+
                                             <tr>
-                                                <td>E</td>
-                                                <td><span class="chip">∧</span></td>
-                                                <td>Conjunção</td>
-                                                <td>Só é V se <strong>tudo</strong> for V: "Estudo <strong>e</strong> treino."</td>
+                                                <td>V</td>
+                                                <td>F</td>
+                                                <td>F</td>
                                             </tr>
+
                                             <tr>
-                                                <td>OU</td>
-                                                <td><span class="chip">∨</span></td>
-                                                <td>Disjunção</td>
-                                                <td>Basta <strong>um</strong> ser V: "Leio <strong>ou</strong> jogo."</td>
+                                                <td>F</td>
+                                                <td>V</td>
+                                                <td>F</td>
                                             </tr>
+
                                             <tr>
-                                                <td>SE... ENTÃO</td>
-                                                <td><span class="chip">→</span></td>
-                                                <td>Condicional</td>
-                                                <td>Promessa: "<strong>Se</strong> chover, <strong>então</strong> molha."</td>
-                                            </tr>
-                                            <tr>
-                                                <td>SE E SOMENTE SE</td>
-                                                <td><span class="chip">↔</span></td>
-                                                <td>Bicondicional</td>
-                                                <td>Valores iguais: "Passo <strong>se e somente se</strong> estudar."</td>
+                                                <td>F</td>
+                                                <td>F</td>
+                                                <td>F</td>
                                             </tr>
                                         </tbody>
+
                                     </table>
-                                </div>
-                                <div class="dica">
-                                    🧪 <strong>Dica:</strong> Na aba <strong>Simulador</strong>, você pode montar expressões com esses símbolos e gerar a tabela-verdade automaticamente!
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Tópico 5: Quantificadores -->
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#topico5">
-                                5. Quantificadores
-                            </button>
-                        </h2>
-                        <div id="topico5" class="accordion-collapse collapse" data-bs-parent="#accordionAprender">
-                            <div class="accordion-body">
-                                <p>Os quantificadores são palavrinhas mágicas que dizem <strong>quantos</strong> elementos têm uma característica.</p>
-                                <p class="mb-2">Imagine uma turma com 3 crianças: <span class="chip">Ana, Beto, Caio</span> 🧑‍🤝‍🧑</p>
-
-                                <div class="alert alert-info">
-                                    <strong>∀ "para todo"</strong> (vale para <strong>TODOS</strong>) 📣<br>
-                                    <em>"Todo mundo trouxe lanche."</em> Só é verdade se <strong>as 3 crianças</strong> trouxerem.<br>
-                                    Com números: <span class="chip">∀x ∈ {2, 4, 6}, x é par</span> ✅ verdade, todos são pares!<br>
-                                    Já <span class="chip">∀x ∈ {2, 4, 5}, x é par</span> ❌ falso, porque o 5 não é par.
                                 </div>
 
-                                <div class="alert alert-warning">
-                                    <strong>∃ "existe"</strong> (basta <strong>UM</strong>) 🔎<br>
-                                    <em>"Alguém trouxe lanche."</em> Basta <strong>uma</strong> criança ter trazido.<br>
-                                    Com números: <span class="chip">∃x ∈ {1, 2, 3}, x &gt; 2</span> ✅ verdade, o <strong>3</strong> é maior que 2!
-                                </div>
+                                <p>
+                                    Ao observar a última coluna,
+                                    podemos classificar uma expressão:
+                                </p>
 
-                                <div class="dica">
-                                    💡 <strong>Para lembrar:</strong>
-                                    <ul class="mb-0">
-                                        <li><strong>∀</strong> (de cabeça para baixo, parece um <em>A</em> de "<strong>A</strong>ll", "todos") é <strong>exigente</strong>: todos precisam passar no teste.</li>
-                                        <li><strong>∃</strong> (um <em>E</em> ao contrário, de "<strong>E</strong>xiste") é <strong>tranquilo</strong>: basta um passar.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Tópico 6 -->
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#topico6">
-                                6. União (∪) e Interseção (∩)
-                            </button>
-                        </h2>
-                        <div id="topico6" class="accordion-collapse collapse" data-bs-parent="#accordionAprender">
-                            <div class="accordion-body">
-                                <p>Considere dois grupos de amigos: <span class="chip">A = {1, 2, 3}</span> e <span class="chip">B = {3, 4, 5}</span>.</p>
-                                <div class="alert alert-info">
-                                    <strong>União (A ∪ B) — "Juntar tudo"</strong> 🤝<br>
-                                    Reúne todos os elementos de A e de B em uma única caixa, sem repetir o que aparece duas vezes.<br>
-                                    Exemplo: <span class="chip">A ∪ B = {1, 2, 3, 4, 5}</span>
-                                </div>
-                                <div class="alert alert-warning mb-0">
-                                    <strong>Interseção (A ∩ B) — "O que têm em comum"</strong> 🎯<br>
-                                    Pega somente os elementos repetidos que estão nos dois conjuntos ao mesmo tempo.<br>
-                                    Exemplo: <span class="chip">A ∩ B = {3}</span> (se não houver nada em comum, o resultado é <span class="chip">∅</span>).
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Tópico 7 -->
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#topico7">
-                                7. Diferença (−) e Complemento (A̅)
-                            </button>
-                        </h2>
-                        <div id="topico7" class="accordion-collapse collapse" data-bs-parent="#accordionAprender">
-                            <div class="accordion-body">
-                                <p>Considere o Universo <span class="chip">U = {1, 2, 3, 4, 5, 6}</span>, <span class="chip">A = {1, 2, 3}</span> e <span class="chip">B = {3, 4}</span>.</p>
-                                <div class="alert alert-info">
-                                    <strong>Diferença (A − B) — "Só o que é de A"</strong> ✂️<br>
-                                    Tira de A tudo o que também aparece em B.<br>
-                                    Exemplo: <span class="chip">A − B = {1, 2}</span> (o 3 saiu porque estava em B).
-                                </div>
-                                <div class="alert alert-warning mb-0">
-                                    <strong>Complemento (A̅) — "O que falta para completar U"</strong> 🧩<br>
-                                    São todos os elementos do Universo (U) que ficaram de fora de A.<br>
-                                    Exemplo: <span class="chip">A̅ = {4, 5, 6}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Tópico 8 -->
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#topico8">
-                                8. Tautologia, Contradição e Contingência
-                            </button>
-                        </h2>
-                        <div id="topico8" class="accordion-collapse collapse" data-bs-parent="#accordionAprender">
-                            <div class="accordion-body">
-                                <p>Quando montamos a tabela-verdade completa de uma expressão, o resultado final recebe um nome especial:</p>
                                 <ul>
-                                    <li><strong>Tautologia:</strong> O resultado é <strong>sempre Verdadeiro (V)</strong> em todas as linhas. Ex: <span class="chip">p ∨ ¬p</span> ("Ou chove, ou não chove").</li>
-                                    <li class="mt-2"><strong>Contradição:</strong> O resultado é <strong>sempre Falso (F)</strong> em todas as linhas. Ex: <span class="chip">p ∧ ¬p</span> ("Chove e não chove ao mesmo tempo").</li>
-                                    <li class="mt-2"><strong>Contingência:</strong> Mistura resultados <strong>V</strong> e <strong>F</strong> dependendo dos valores iniciais. Ex: <span class="chip">p → q</span>.</li>
+
+                                    <li>
+                                        <strong>Tautologia:</strong>
+                                        sempre verdadeira.
+                                        Ex.: p ∨ ¬p.
+                                    </li>
+
+                                    <li>
+                                        <strong>Contradição:</strong>
+                                        sempre falsa.
+                                        Ex.: p ∧ ¬p.
+                                    </li>
+
+                                    <li>
+                                        <strong>Contingência:</strong>
+                                        às vezes verdadeira e às vezes falsa.
+                                        Ex.: p ∧ q.
+                                    </li>
+
                                 </ul>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Tópico 9 -->
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#topico9">
-                                9. Equivalências Lógicas Famosas
-                            </button>
-                        </h2>
-                        <div id="topico9" class="accordion-collapse collapse" data-bs-parent="#accordionAprender">
-                            <div class="accordion-body">
-                                <p>Duas expressões são <strong>equivalentes (≡)</strong> quando possuem exatamente a mesma tabela-verdade:</p>
-                                <div class="dica mt-0">
-                                    🔄 <strong>As 3 regras de ouro:</strong>
-                                    <ul class="mb-0 mt-1">
-                                        <li><strong>Dupla Negação:</strong> <span class="chip">¬(¬p) ≡ p</span> (Negar duas vezes volta ao início).</li>
-                                        <li><strong>Leis de De Morgan:</strong> <span class="chip">¬(p ∧ q) ≡ ¬p ∨ ¬q</span> e <span class="chip">¬(p ∨ q) ≡ ¬p ∧ ¬q</span>.</li>
-                                        <li><strong>Equivalência do "Se... então":</strong> <span class="chip">p → q ≡ ¬p ∨ q</span> ("Se estudo, passo" equivale a "Não estudo ou passo").</li>
-                                    </ul>
+                                <hr>
+
+                                <h4 class="h6">
+                                    Quando duas expressões são equivalentes?
+                                </h4>
+
+                                <p>
+                                    Quando apresentam os mesmos resultados
+                                    em todas as linhas da tabela-verdade.
+                                    Por exemplo:
+                                </p>
+
+                                <div class="dica mb-0">
+
+                                    <strong>Dupla negação:</strong>
+                                    ¬(¬p) ≡ p<br>
+
+                                    <strong>Lei de De Morgan:</strong>
+                                    ¬(p ∧ q) ≡ ¬p ∨ ¬q<br>
+
+                                    <strong>Condicional:</strong>
+                                    p → q ≡ ¬p ∨ q
+
                                 </div>
+
                             </div>
                         </div>
-                    </div>
+
+                    </article>
 
                 </div>
-                <!-- Fim do Accordion -->
+            </section>
 
-                <!-- Botão para ir ao próximo módulo -->
-                <div class="mt-5 text-center">
-                    <a href="exercicios.html" class="btn btn-primary btn-lg px-5">Ir para Exercícios <i
-                            class="bi bi-arrow-right"></i></a>
-                </div>
-
-            </div>
         </div>
+
+
+        <!-- CHAMADA PARA OS EXERCÍCIOS -->
+        <section class="proxima-etapa text-center">
+
+            <div>
+                <span class="secao-etiqueta">AGORA É SUA VEZ</span>
+
+                <h2>Vamos praticar o que você aprendeu?</h2>
+
+                <p>
+                    Resolva questões em três etapas:
+                    comece pelo básico e avance até os desafios.
+                </p>
+
+                <a href="exercicios.html" class="btn btn-primary btn-lg">
+                    Ir para os exercícios →
+                </a>
+            </div>
+
+            <div class="proxima-icone" aria-hidden="true">
+                ✏️
+            </div>
+
+        </section>
+
     </main>
 
-    <!-- Bootstrap 5.3.8 JS Bundle (inclui Popper) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
 
+    <footer class="container py-4 text-center text-secondary small">
+        TautoLab — Aprender lógica faz sentido.
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/aprender.js"></script>
+
 </body>
 
 </html>

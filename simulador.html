@@ -21,7 +21,8 @@
     <!-- Navegação -->
     <nav class="navbar navbar-expand-lg navbar-tauto border-bottom">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html"><span class="brand-mark" aria-hidden="true">✦</span> TautoLab</a>
+            <a class="navbar-brand fw-bold" href="index.html"><span class="brand-mark" aria-hidden="true">✦</span>
+                TautoLab</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menu">
@@ -82,280 +83,592 @@
                 <button type="button" class="btn btn-outline-primary" id="btnSimuladorLogica" aria-pressed="false">
                     Tabela-verdade
                 </button>
+
+                <button type="button" class="btn btn-outline-primary" id="btnSimuladorCircuitos" aria-pressed="false">
+                    Laboratório de circuitos
+                </button>
+
             </div>
         </div>
         <section id="painelConjuntos" aria-label="Simulador de conjuntos">
-        <div class="row g-4">
-            <!-- Painel de configuração -->
-            <section class="col-lg-4" aria-labelledby="tituloConfiguracao">
-                <div class="card shadow-sm h-100">
-                    <div class="card-body p-4">
-                        <h2 class="h5 mb-3" id="tituloConfiguracao">
-                            1. Defina os conjuntos
-                        </h2>
+            <div class="row g-4">
+                <!-- Painel de configuração -->
+                <section class="col-lg-4" aria-labelledby="tituloConfiguracao">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body p-4">
+                            <h2 class="h5 mb-3" id="tituloConfiguracao">
+                                1. Defina os conjuntos
+                            </h2>
 
-                        <p class="text-secondary small">
-                            Separe os elementos por vírgulas.
-                            O universo deve conter todos os elementos
-                            de A e B.
-                        </p>
+                            <p class="text-secondary small">
+                                Separe os elementos por vírgulas.
+                                O universo deve conter todos os elementos
+                                de A e B.
+                            </p>
 
-                        <form id="formSimulador">
-                            <div class="mb-3">
-                                <label for="universo" class="form-label fw-semibold">
-                                    Universo (U)
+                            <form id="formSimulador">
+                                <div class="mb-3">
+                                    <label for="universo" class="form-label fw-semibold">
+                                        Universo (U)
+                                    </label>
+
+                                    <input type="text" class="form-control" id="universo" value="1, 2, 3, 4, 5, 6, 7, 8"
+                                        placeholder="Ex.: 1, 2, 3, 4, 5" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="conjuntoA" class="form-label fw-semibold">
+                                        Conjunto A
+                                    </label>
+
+                                    <input type="text" class="form-control" id="conjuntoA" value="1, 2, 3, 4"
+                                        placeholder="Ex.: 1, 2, 3" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="conjuntoB" class="form-label fw-semibold">
+                                        Conjunto B
+                                    </label>
+
+                                    <input type="text" class="form-control" id="conjuntoB" value="3, 4, 5, 6"
+                                        placeholder="Ex.: 3, 4, 5" required>
+                                </div>
+
+                                <hr class="my-4">
+
+                                <h2 class="h5 mb-3">
+                                    2. Escolha a operação
+                                </h2>
+
+                                <label for="operacao" class="form-label">
+                                    Operação matemática
                                 </label>
 
-                                <input type="text" class="form-control" id="universo" value="1, 2, 3, 4, 5, 6, 7, 8"
-                                    placeholder="Ex.: 1, 2, 3, 4, 5" required>
+                                <select class="form-select mb-3" id="operacao">
+                                    <option value="uniao">União (A ∪ B)</option>
+                                    <option value="intersecao">Interseção (A ∩ B)</option>
+                                    <option value="diferencaAB">Diferença (A − B)</option>
+                                    <option value="diferencaBA">Diferença (B − A)</option>
+                                    <option value="complementoA">Complemento de A (Aᶜ)</option>
+                                    <option value="complementoB">Complemento de B (Bᶜ)</option>
+                                </select>
+
+                                <button type="submit" class="btn btn-primary w-100">
+                                    Simular operação
+                                </button>
+
+                                <button type="button" class="btn btn-outline-secondary w-100 mt-2" id="btnLimpar">
+                                    Restaurar exemplos
+                                </button>
+                            </form>
+
+                            <div id="mensagemErro" class="alert alert-danger mt-3 d-none" role="alert"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Painel do diagrama e resultado -->
+                <section class="col-lg-8" aria-labelledby="tituloDiagrama">
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-body p-3 p-md-4">
+                            <div class="d-flex justify-content-between
+                                    align-items-center flex-wrap gap-2 mb-3">
+                                <h2 class="h5 mb-0" id="tituloDiagrama">
+                                    Diagrama de Venn
+                                </h2>
+
+                                <span class="badge text-bg-primary" id="rotuloOperacao">
+                                    A ∪ B
+                                </span>
                             </div>
 
-                            <div class="mb-3">
-                                <label for="conjuntoA" class="form-label fw-semibold">
+                            <div class="diagrama-container">
+                                <svg id="diagramaVenn" viewBox="0 0 600 330" role="img"
+                                    aria-label="Diagrama de Venn dos conjuntos A e B">
+                                    <text x="300" y="160" text-anchor="middle">
+                                        O diagrama será exibido aqui.
+                                    </text>
+                                </svg>
+                            </div>
+
+                            <div class="legenda mt-3">
+                                <span>
+                                    <span class="legenda-cor cor-a"></span>
                                     Conjunto A
-                                </label>
+                                </span>
 
-                                <input type="text" class="form-control" id="conjuntoA" value="1, 2, 3, 4"
-                                    placeholder="Ex.: 1, 2, 3" required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="conjuntoB" class="form-label fw-semibold">
+                                <span>
+                                    <span class="legenda-cor cor-b"></span>
                                     Conjunto B
-                                </label>
+                                </span>
 
-                                <input type="text" class="form-control" id="conjuntoB" value="3, 4, 5, 6"
-                                    placeholder="Ex.: 3, 4, 5" required>
+                                <span>
+                                    <span class="legenda-cor cor-resultado"></span>
+                                    Região selecionada
+                                </span>
                             </div>
+                        </div>
+                    </div>
+
+                    <!-- Resultado matemático -->
+                    <div class="card shadow-sm">
+                        <div class="card-body p-4">
+                            <h2 class="h5 mb-3">
+                                Resultado da operação
+                            </h2>
+
+                            <div class="resultado-box">
+                                <div class="text-secondary small">
+                                    Resultado
+                                </div>
+
+                                <div class="resultado-expressao" id="expressaoResultado" aria-live="polite">
+                                    A ∪ B = {1, 2, 3, 4, 5, 6}
+                                </div>
+
+                                <div class="text-secondary small mt-2" id="cardinalidade">
+                                    Cardinalidade: 6 elementos
+                                </div>
+                            </div>
+
+                            <p class="mt-3 mb-0" id="explicacaoResultado">
+                                A união reúne todos os elementos que pertencem
+                                a A, a B ou a ambos.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <section id="painelTabelaVerdade" class="d-none" aria-labelledby="tituloTabelaVerdade">
+
+            <div class="card shadow-sm">
+                <div class="card-body p-4">
+
+                    <h2 class="h4 mb-2" id="tituloTabelaVerdade">
+                        Simulador de Tabela-Verdade
+                    </h2>
+
+                    <p class="text-secondary">
+                        Digite uma expressão lógica e veja o valor lógico
+                        de cada combinação das proposições.
+                    </p>
+
+                    <form id="formTabelaVerdade">
+                        <div class="mb-3">
+                            <label for="expressaoLogica" class="form-label fw-semibold">
+                                Expressão lógica
+                            </label>
+
+                            <input type="text" class="form-control" id="expressaoLogica" placeholder="Ex.: (p ∧ q) → ¬p"
+                                value="p ∧ q" required autocomplete="off" aria-describedby="ajudaExpressao">
+
+                            <div class="form-text" id="ajudaExpressao">
+                                Use p, q e r; parênteses; e os operadores
+                                ¬, ∧, ∨, → e ↔.
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-wrap gap-2 mb-3" aria-label="Inserir operadores lógicos">
+
+                            <button type="button" class="btn btn-outline-secondary btn-sm operador" data-operador="¬">¬
+                                Negação</button>
+
+                            <button type="button" class="btn btn-outline-secondary btn-sm operador" data-operador="∧">∧
+                                Conjunção</button>
+
+                            <button type="button" class="btn btn-outline-secondary btn-sm operador" data-operador="∨">∨
+                                Disjunção</button>
+
+                            <button type="button" class="btn btn-outline-secondary btn-sm operador" data-operador="→">→
+                                Condicional</button>
+
+                            <button type="button" class="btn btn-outline-secondary btn-sm operador" data-operador="↔">↔
+                                Bicondicional</button>
+
+                            <button type="button" class="btn btn-outline-secondary btn-sm operador" data-operador="( )"
+                                data-parenteses="true">( ) Parênteses</button>
+                        </div>
+
+                        <div class="d-flex flex-wrap gap-2">
+                            <button type="submit" class="btn btn-primary">
+                                Gerar tabela-verdade
+                            </button>
+
+                            <button type="button" class="btn btn-outline-secondary" id="btnLimparTabela">
+                                Restaurar exemplo
+                            </button>
+                        </div>
+                    </form>
+
+                    <div id="erroTabelaVerdade" class="alert alert-danger mt-3 d-none" role="alert"></div>
+
+                    <hr class="my-4">
+
+                    <h3 class="h5 mb-3">Resultado</h3>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped
+                              text-center align-middle" id="tabelaVerdade">
+                            <caption class="caption-top">
+                                Tabela-verdade da expressão informada
+                            </caption>
+
+                            <thead>
+                                <tr id="cabecalhoTabela">
+                                    <th scope="col">A tabela será gerada aqui</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="corpoTabela">
+                                <tr>
+                                    <td>Informe uma expressão e clique em
+                                        “Gerar tabela-verdade”.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert alert-info mb-0" id="classificacaoTabela" aria-live="polite">
+                        A classificação lógica aparecerá aqui.
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- LABORATÓRIO DE CIRCUITOS LÓGICOS -->
+
+        <section id="painelCircuitos" class="d-none" aria-labelledby="tituloCircuitos">
+
+            <div class="lab-introducao mb-4">
+
+                <span class="lab-etiqueta">EXPERIMENTE A LÓGICA</span>
+
+                <h2 class="h3 mt-2" id="tituloCircuitos">
+                    Laboratório de circuitos lógicos
+                </h2>
+
+                <p class="text-secondary mb-0">
+                    Ligue e desligue as entradas, escolha uma porta lógica
+                    e observe como o circuito transforma os sinais em uma saída.
+                </p>
+
+            </div>
+
+            <div class="row g-4 align-items-start">
+
+                <!-- CONTROLES -->
+                <section class="col-lg-4" aria-labelledby="tituloControlesCircuito">
+
+                    <div class="card shadow-sm h-100">
+
+                        <div class="card-body p-4">
+
+                            <h3 class="h5 mb-3" id="tituloControlesCircuito">
+                                1. Escolha uma porta
+                            </h3>
+
+                            <div class="seletor-portas" role="group" aria-label="Selecionar porta lógica">
+
+                                <button type="button" class="btn btn-primary seletor-porta" data-porta="and"
+                                    aria-pressed="true">
+                                    AND · E
+                                </button>
+
+                                <button type="button" class="btn btn-outline-primary seletor-porta" data-porta="or"
+                                    aria-pressed="false">
+                                    OR · OU
+                                </button>
+
+                                <button type="button" class="btn btn-outline-primary seletor-porta" data-porta="not"
+                                    aria-pressed="false">
+                                    NOT · NÃO
+                                </button>
+
+                            </div>
+
+                            <p class="small text-secondary mt-3" id="descricaoPorta">
+                                A saída só fica ligada quando as duas entradas estão ligadas.
+                            </p>
 
                             <hr class="my-4">
 
-                            <h2 class="h5 mb-3">
-                                2. Escolha a operação
-                            </h2>
+                            <h3 class="h5 mb-3">
+                                2. Controle as entradas
+                            </h3>
 
-                            <label for="operacao" class="form-label">
-                                Operação matemática
-                            </label>
+                            <!-- ENTRADA A -->
+                            <div class="entrada-controle">
 
-                            <select class="form-select mb-3" id="operacao">
-                                <option value="uniao">União (A ∪ B)</option>
-                                <option value="intersecao">Interseção (A ∩ B)</option>
-                                <option value="diferencaAB">Diferença (A − B)</option>
-                                <option value="diferencaBA">Diferença (B − A)</option>
-                                <option value="complementoA">Complemento de A (Aᶜ)</option>
-                                <option value="complementoB">Complemento de B (Bᶜ)</option>
-                            </select>
+                                <div>
+                                    <strong>Entrada A</strong>
 
-                            <button type="submit" class="btn btn-primary w-100">
-                                Simular operação
+                                    <span class="d-block small text-secondary" id="estadoEntradaA">
+                                        Desligada (0)
+                                    </span>
+                                </div>
+
+                                <label class="switch-circuito" for="entradaA">
+
+                                    <input type="checkbox" id="entradaA">
+
+                                    <span class="switch-visual" aria-hidden="true">
+                                    </span>
+
+                                    <span class="visually-hidden">
+                                        Ligar ou desligar entrada A
+                                    </span>
+
+                                </label>
+
+                            </div>
+
+                            <!-- ENTRADA B -->
+                            <div class="entrada-controle" id="controleEntradaB">
+
+                                <div>
+                                    <strong>Entrada B</strong>
+
+                                    <span class="d-block small text-secondary" id="estadoEntradaB">
+                                        Desligada (0)
+                                    </span>
+                                </div>
+
+                                <label class="switch-circuito" for="entradaB">
+
+                                    <input type="checkbox" id="entradaB">
+
+                                    <span class="switch-visual" aria-hidden="true">
+                                    </span>
+
+                                    <span class="visually-hidden">
+                                        Ligar ou desligar entrada B
+                                    </span>
+
+                                </label>
+
+                            </div>
+
+                            <button type="button" class="btn btn-outline-secondary w-100 mt-3" id="btnResetCircuito">
+
+                                Desligar todas as entradas
+
                             </button>
 
-                            <button type="button" class="btn btn-outline-secondary w-100 mt-2" id="btnLimpar">
-                                Restaurar exemplos
-                            </button>
-                        </form>
-
-                        <div id="mensagemErro" class="alert alert-danger mt-3 d-none" role="alert"></div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Painel do diagrama e resultado -->
-            <section class="col-lg-8" aria-labelledby="tituloDiagrama">
-                <div class="card shadow-sm mb-4">
-                    <div class="card-body p-3 p-md-4">
-                        <div class="d-flex justify-content-between
-                                    align-items-center flex-wrap gap-2 mb-3">
-                            <h2 class="h5 mb-0" id="tituloDiagrama">
-                                Diagrama de Venn
-                            </h2>
-
-                            <span class="badge text-bg-primary" id="rotuloOperacao">
-                                A ∪ B
-                            </span>
-                        </div>
-
-                        <div class="diagrama-container">
-                            <svg id="diagramaVenn" viewBox="0 0 600 330" role="img"
-                                aria-label="Diagrama de Venn dos conjuntos A e B">
-                                <text x="300" y="160" text-anchor="middle">
-                                    O diagrama será exibido aqui.
-                                </text>
-                            </svg>
-                        </div>
-
-                        <div class="legenda mt-3">
-                            <span>
-                                <span class="legenda-cor cor-a"></span>
-                                Conjunto A
-                            </span>
-
-                            <span>
-                                <span class="legenda-cor cor-b"></span>
-                                Conjunto B
-                            </span>
-
-                            <span>
-                                <span class="legenda-cor cor-resultado"></span>
-                                Região selecionada
-                            </span>
                         </div>
                     </div>
-                </div>
+                </section>
 
-                <!-- Resultado matemático -->
-                <div class="card shadow-sm">
-                    <div class="card-body p-4">
-                        <h2 class="h5 mb-3">
-                            Resultado da operação
-                        </h2>
 
-                        <div class="resultado-box">
-                            <div class="text-secondary small">
-                                Resultado
+                <!-- VISUALIZAÇÃO DO CIRCUITO -->
+                <section class="col-lg-8" aria-labelledby="tituloVisualizacaoCircuito">
+
+                    <div class="card shadow-sm mb-4">
+
+                        <div class="card-body p-3 p-md-4">
+
+                            <div class="d-flex flex-wrap justify-content-between
+                                align-items-center gap-2 mb-3">
+
+                                <h3 class="h5 mb-0" id="tituloVisualizacaoCircuito">
+                                    3. Observe o circuito
+                                </h3>
+
+                                <span class="lab-etiqueta" id="nomePortaAtiva">
+                                    PORTA AND
+                                </span>
+
                             </div>
 
-                            <div class="resultado-expressao" id="expressaoResultado" aria-live="polite">
-                                A ∪ B = {1, 2, 3, 4, 5, 6}
+                            <!-- CIRCUITO SVG -->
+                            <div class="circuito-palco">
+
+                                <svg id="diagramaCircuito" viewBox="0 0 560 245" role="img"
+                                    aria-labelledby="tituloSvgCircuito descricaoSvgCircuito">
+
+                                    <title id="tituloSvgCircuito">
+                                        Circuito lógico interativo
+                                    </title>
+
+                                    <desc id="descricaoSvgCircuito">
+                                        As entradas alimentam uma porta lógica.
+                                        A saída acende uma lâmpada quando o resultado
+                                        é verdadeiro.
+                                    </desc>
+
+                                    <!-- ENTRADAS -->
+                                    <text id="rotuloEntradaA" x="24" y="79" class="rotulo-fio">
+                                        A
+                                    </text>
+
+                                    <path id="fioA" class="fio-circuito" d="M55 85 H185">
+                                    </path>
+
+                                    <text id="rotuloEntradaB" x="24" y="155" class="rotulo-fio">
+                                        B
+                                    </text>
+
+                                    <path id="fioB" class="fio-circuito" d="M55 160 H185">
+                                    </path>
+
+
+                                    <!-- PORTA AND -->
+                                    <g id="desenhoAnd" class="desenho-porta">
+
+                                        <path class="corpo-porta" d="M185 50 H270 A65 65 0 0 1 270 180 H185 Z">
+                                        </path>
+
+                                        <text x="245" y="122" class="texto-porta">
+                                            AND
+                                        </text>
+
+                                    </g>
+
+
+                                    <!-- PORTA OR -->
+                                    <g id="desenhoOr" class="desenho-porta d-none">
+
+                                        <path class="corpo-porta"
+                                            d="M185 50 Q250 50 340 115 Q250 180 185 180 Q220 115 185 50 Z">
+                                        </path>
+
+                                        <text x="255" y="122" class="texto-porta">
+                                            OR
+                                        </text>
+
+                                    </g>
+
+
+                                    <!-- PORTA NOT -->
+                                    <g id="desenhoNot" class="desenho-porta d-none">
+
+                                        <path class="corpo-porta" d="M210 50 L340 115 L210 180 Z">
+                                        </path>
+
+                                        <circle cx="353" cy="115" r="12" class="bolha-not">
+                                        </circle>
+
+                                        <text x="260" y="122" class="texto-porta">
+                                            NOT
+                                        </text>
+
+                                    </g>
+
+
+                                    <!-- SAÍDA -->
+                                    <path id="fioSaida" class="fio-circuito" d="M340 115 H475">
+                                    </path>
+
+                                    <circle id="lampadaCircuito" cx="505" cy="115" r="24" class="lampada-circuito">
+                                    </circle>
+
+                                    <text x="505" y="164" text-anchor="middle" class="rotulo-fio">
+                                        SAÍDA
+                                    </text>
+
+                                </svg>
+
                             </div>
 
-                            <div class="text-secondary small mt-2" id="cardinalidade">
-                                Cardinalidade: 6 elementos
+                            <div class="legenda-circuito">
+
+                                <span>
+                                    <i class="legenda-sinal sinal-desligado"></i>
+                                    Sinal desligado (0)
+                                </span>
+
+                                <span>
+                                    <i class="legenda-sinal sinal-ligado"></i>
+                                    Sinal ligado (1)
+                                </span>
+
                             </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- RESULTADO E EXPLICAÇÃO -->
+                    <div class="row g-3">
+
+                        <div class="col-md-5">
+
+                            <div class="resultado-circuito h-100" aria-live="polite">
+
+                                <span class="small fw-bold">
+                                    RESULTADO DA OPERAÇÃO
+                                </span>
+
+                                <div class="expressao-circuito" id="expressaoCircuito">
+                                    A ∧ B
+                                </div>
+
+                                <div class="valor-circuito valor-falso" id="resultadoCircuito">
+                                    FALSO (0)
+                                </div>
+
+                            </div>
+
                         </div>
 
-                        <p class="mt-3 mb-0" id="explicacaoResultado">
-                            A união reúne todos os elementos que pertencem
-                            a A, a B ou a ambos.
-                        </p>
+
+                        <div class="col-md-7">
+
+                            <div class="explicacao-circuito h-100" aria-live="polite">
+
+                                <strong>
+                                    Por que esse foi o resultado?
+                                </strong>
+
+                                <p class="mb-0 mt-2" id="explicacaoCircuito">
+                                    A porta AND precisa que A e B estejam ligadas.
+                                    Como as duas começam desligadas, a saída é falsa.
+                                </p>
+
+                            </div>
+
+                        </div>
+
                     </div>
-                </div>
-            </section>
-        </div>
-    </section>
 
-<section id="painelTabelaVerdade"
-         class="d-none"
-         aria-labelledby="tituloTabelaVerdade">
 
-    <div class="card shadow-sm">
-        <div class="card-body p-4">
+                    <!-- TABELA-VERDADE -->
+                    <div class="card shadow-sm mt-4">
 
-            <h2 class="h4 mb-2" id="tituloTabelaVerdade">
-                Simulador de Tabela-Verdade
-            </h2>
+                        <div class="card-body p-4">
 
-            <p class="text-secondary">
-                Digite uma expressão lógica e veja o valor lógico
-                de cada combinação das proposições.
-            </p>
+                            <h3 class="h5 mb-2">
+                                Tabela-verdade da porta selecionada
+                            </h3>
 
-            <form id="formTabelaVerdade">
-                <div class="mb-3">
-                    <label for="expressaoLogica"
-                           class="form-label fw-semibold">
-                        Expressão lógica
-                    </label>
+                            <p class="text-secondary small">
+                                A linha destacada mostra a combinação
+                                que você escolheu nos interruptores.
+                            </p>
 
-                    <input
-                        type="text"
-                        class="form-control"
-                        id="expressaoLogica"
-                        placeholder="Ex.: (p ∧ q) → ¬p"
-                        value="p ∧ q"
-                        required
-                        autocomplete="off"
-                        aria-describedby="ajudaExpressao">
+                            <div class="table-responsive">
 
-                    <div class="form-text" id="ajudaExpressao">
-                        Use p, q e r; parênteses; e os operadores
-                        ¬, ∧, ∨, → e ↔.
+                                <table class="table table-bordered
+                                      text-center align-middle mb-0" id="tabelaCircuito">
+
+                                    <thead id="cabecalhoCircuito"></thead>
+
+                                    <tbody id="corpoCircuito"></tbody>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
                     </div>
-                </div>
 
-                <div class="d-flex flex-wrap gap-2 mb-3"
-                     aria-label="Inserir operadores lógicos">
+                </section>
 
-                    <button type="button"
-                            class="btn btn-outline-secondary btn-sm operador"
-                            data-operador="¬">¬ Negação</button>
-
-                    <button type="button"
-                            class="btn btn-outline-secondary btn-sm operador"
-                            data-operador="∧">∧ Conjunção</button>
-
-                    <button type="button"
-                            class="btn btn-outline-secondary btn-sm operador"
-                            data-operador="∨">∨ Disjunção</button>
-
-                    <button type="button"
-                            class="btn btn-outline-secondary btn-sm operador"
-                            data-operador="→">→ Condicional</button>
-
-                    <button type="button"
-                            class="btn btn-outline-secondary btn-sm operador"
-                            data-operador="↔">↔ Bicondicional</button>
-
-                    <button type="button"
-                            class="btn btn-outline-secondary btn-sm operador"
-                            data-operador="( )"
-                            data-parenteses="true">( ) Parênteses</button>
-                </div>
-
-                <div class="d-flex flex-wrap gap-2">
-                    <button type="submit" class="btn btn-primary">
-                        Gerar tabela-verdade
-                    </button>
-
-                    <button type="button"
-                            class="btn btn-outline-secondary"
-                            id="btnLimparTabela">
-                        Restaurar exemplo
-                    </button>
-                </div>
-            </form>
-
-            <div id="erroTabelaVerdade"
-                 class="alert alert-danger mt-3 d-none"
-                 role="alert"></div>
-
-            <hr class="my-4">
-
-            <h3 class="h5 mb-3">Resultado</h3>
-
-            <div class="table-responsive">
-                <table class="table table-bordered table-striped
-                              text-center align-middle"
-                       id="tabelaVerdade">
-                    <caption class="caption-top">
-                        Tabela-verdade da expressão informada
-                    </caption>
-
-                    <thead>
-                        <tr id="cabecalhoTabela">
-                            <th scope="col">A tabela será gerada aqui</th>
-                        </tr>
-                    </thead>
-
-                    <tbody id="corpoTabela">
-                        <tr>
-                            <td>Informe uma expressão e clique em
-                                “Gerar tabela-verdade”.</td>
-                        </tr>
-                    </tbody>
-                </table>
             </div>
 
-            <div class="alert alert-info mb-0"
-                 id="classificacaoTabela"
-                 aria-live="polite">
-                A classificação lógica aparecerá aqui.
-            </div>
-
-        </div>
-    </div>
-</section>
+        </section>
 
     </main>
 
@@ -366,6 +679,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/simulador.js"></script>
     <script src="js/tabela-verdade.js"></script>
+    <script src="js/circuitos.js"></script>
 </body>
 
 </html>

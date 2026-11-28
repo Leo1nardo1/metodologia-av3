@@ -1,0 +1,422 @@
+/* Estilos exclusivos da página inicial */
+
+.inicio-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(280px, .9fr);
+    align-items: center;
+    gap: 2rem;
+    padding: clamp(1.7rem, 5vw, 3.5rem);
+    color: #fff;
+    border-radius: 36px;
+    background: linear-gradient(135deg, #7044df, #4a24b8);
+    box-shadow: 0 10px 0 #35178e;
+    overflow: hidden;
+    position: relative;
+}
+
+.inicio-hero::before,
+.inicio-hero::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.inicio-hero::before {
+    width: 190px;
+    height: 190px;
+    right: -60px;
+    top: -85px;
+    background: #ff6b6b;
+    opacity: .8;
+}
+
+.inicio-hero::after {
+    width: 125px;
+    height: 125px;
+    left: -55px;
+    bottom: -65px;
+    background: #2fd6a0;
+    opacity: .8;
+}
+
+.inicio-hero > * {
+    position: relative;
+    z-index: 1;
+}
+
+.inicio-hero-texto {
+    max-width: 680px;
+}
+
+.inicio-hero h1 {
+    color: #fff;
+    font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+    line-height: 1.12;
+    text-decoration: none;
+    margin: .4rem 0 1rem;
+}
+
+.inicio-hero h1 span {
+    color: #ffd23f;
+}
+
+.inicio-hero p {
+    max-width: 590px;
+    color: #f4edff;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.inicio-hero .hero-selo {
+    display: inline-block;
+    padding: .4rem 1rem;
+    border-radius: 999px;
+    color: #2b1f55;
+    background: #ffd23f;
+    box-shadow: 0 4px 0 #d6a900;
+    font-family: var(--font-title);
+    font-weight: 700;
+    transform: rotate(-2deg);
+}
+
+.inicio-hero .btn-outline-primary {
+    --bs-btn-color: #fff;
+    --bs-btn-border-color: #fff;
+    --bs-btn-hover-bg: #fff;
+    --bs-btn-hover-color: #4a24b8;
+    --bs-btn-hover-border-color: #fff;
+    background: transparent;
+}
+
+.inicio-hero-arte {
+    width: 100%;
+    max-width: 420px;
+    justify-self: center;
+}
+
+.inicio-hero-arte svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .55rem;
+    margin-top: 1.5rem;
+}
+
+.hero-tags span {
+    padding: .35rem .85rem;
+    border: 1px solid rgba(255,255,255,.38);
+    border-radius: 999px;
+    background: rgba(255,255,255,.13);
+    color: #fff;
+    font-weight: 800;
+    font-size: .9rem;
+}
+
+
+/* Introdução às trilhas */
+
+.trilhas-intro {
+    margin: 3.2rem auto 1.5rem;
+    max-width: 760px;
+    text-align: center;
+}
+
+.secao-etiqueta {
+    display: inline-block;
+    color: #4a24b8;
+    background: #ffd23f;
+    border-radius: 999px;
+    padding: .3rem .85rem;
+    font: 700 .78rem var(--font-title);
+    letter-spacing: .06em;
+}
+
+.trilhas-intro h2,
+.proxima-etapa h2 {
+    margin: .8rem 0 .45rem;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.trilhas-intro p {
+    color: var(--muted);
+    font-size: 1.08rem;
+}
+
+
+/* Duas trilhas */
+
+.trilhas-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.4rem;
+    align-items: start;
+}
+
+.trilha-card {
+    background: #fff;
+    border: 3px solid #fff;
+    border-radius: 28px;
+    padding: clamp(1rem, 2vw, 1.45rem);
+    box-shadow: 0 8px 0 rgba(74,36,184,.14);
+    min-width: 0;
+}
+
+.trilha-organizar {
+    border-top: 8px solid #2fd6a0;
+}
+
+.trilha-pensar {
+    border-top: 8px solid #6c3fe0;
+}
+
+.trilha-topo {
+    display: flex;
+    gap: .7rem;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.trilha-topo h2 {
+    font-size: clamp(1.45rem, 2.2vw, 1.9rem);
+    margin: .35rem 0;
+}
+
+.trilha-topo p {
+    color: var(--muted);
+    margin: 0;
+    font-size: .98rem;
+}
+
+.trilha-numero {
+    color: #6b6291;
+    font: 800 .75rem var(--font-title);
+    letter-spacing: .08em;
+}
+
+.trilha-ilustracao {
+    flex: 0 0 115px;
+    width: 115px;
+}
+
+.trilha-ilustracao svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/* Identificação das etapas */
+
+.trilha-passo {
+    display: flex;
+    gap: .8rem;
+    align-items: center;
+    padding: .8rem 1rem;
+    margin: .9rem 0 1rem;
+    background: #f6f2ff;
+    border-radius: 17px;
+}
+
+.trilha-passo > span {
+    display: grid;
+    place-items: center;
+    flex: 0 0 34px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #ffd23f;
+    font: 700 1.1rem var(--font-title);
+}
+
+.trilha-passo strong,
+.trilha-passo small {
+    display: block;
+}
+
+.trilha-passo small {
+    color: var(--muted);
+    line-height: 1.35;
+}
+
+
+/* Acordeões */
+
+.trilha-accordion {
+    gap: .75rem;
+}
+
+.trilha-accordion .accordion-item {
+    border-width: 2px !important;
+    border-radius: 17px !important;
+    box-shadow: 0 4px 0 var(--c);
+}
+
+.trilha-accordion .accordion-button {
+    font-size: 1.02rem;
+    padding: .9rem 1rem;
+}
+
+.trilha-accordion .accordion-button::before {
+    content: none !important;
+}
+
+.trilha-accordion .accordion-body {
+    padding: 1.1rem;
+    font-size: .98rem;
+}
+
+.trilha-accordion .accordion-body p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* Exemplos */
+
+.exemplo-visual {
+    padding: 1rem;
+    margin: .9rem 0;
+    background: #f5fbff;
+    border: 2px dashed #5cc8ff;
+    border-radius: 18px;
+}
+
+.exemplo-titulo {
+    display: block;
+    margin-bottom: .65rem;
+    font-weight: 900;
+}
+
+.frutas-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .55rem;
+}
+
+.frutas-lista span {
+    padding: .45rem .65rem;
+    background: #fff;
+    border: 1px solid #e6ddfa;
+    border-radius: 12px;
+    font-weight: 800;
+}
+
+.notacao {
+    display: inline-block;
+    margin-top: .6rem;
+    padding: .35rem .75rem;
+    background: #efe8ff;
+    color: #4a24b8;
+    border-radius: 10px;
+    font-weight: 900;
+}
+
+.trilha-card .dica {
+    font-size: .95rem;
+}
+
+.trilha-card .alert {
+    font-size: .96rem;
+    line-height: 1.65;
+}
+
+.trilha-card .table {
+    font-size: .95rem;
+}
+
+
+/* Chamada para os exercícios */
+
+.proxima-etapa {
+    margin-top: 2.4rem;
+    padding: clamp(1.4rem, 4vw, 2.5rem);
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border: 3px dashed #b8a4f4;
+    border-radius: 28px;
+}
+
+.proxima-etapa p {
+    color: var(--muted);
+    margin-bottom: 1.2rem;
+}
+
+.proxima-icone {
+    flex: 0 0 90px;
+    display: grid;
+    place-items: center;
+    width: 90px;
+    height: 90px;
+    border-radius: 25px;
+    background: #fff3c2;
+    font-size: 3rem;
+    transform: rotate(7deg);
+}
+
+
+/* Responsividade */
+
+@media (max-width: 991px) {
+
+    .trilhas-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .trilha-card {
+        max-width: 760px;
+        width: 100%;
+        margin-inline: auto;
+    }
+
+}
+
+@media (max-width: 767px) {
+
+    .inicio-hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .inicio-hero p {
+        margin-inline: auto;
+    }
+
+    .inicio-hero .d-flex {
+        justify-content: center;
+    }
+
+    .hero-tags {
+        justify-content: center;
+    }
+
+    .inicio-hero-arte {
+        max-width: 340px;
+    }
+
+    .trilha-topo {
+        align-items: flex-start;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .trilha-ilustracao {
+        flex-basis: 82px;
+        width: 82px;
+    }
+
+    .proxima-etapa {
+        flex-direction: column-reverse;
+    }
+
+}

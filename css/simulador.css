@@ -91,3 +91,301 @@
 .pagina-simulador #tabelaVerdade td { font-family: var(--font-title); font-size: 1.1rem; }
 .pagina-simulador #tabelaVerdade .table-success { --bs-table-bg: #c9f7e5; }
 .pagina-simulador #tabelaVerdade .table-danger { --bs-table-bg: #ffd9d9; }
+/* ==============================================
+   LABORATÓRIO DE CIRCUITOS LÓGICOS
+   ============================================== */
+
+.pagina-simulador .seletor-portas {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: .45rem;
+}
+
+.pagina-simulador .seletor-portas .btn {
+    min-width: 0;
+    padding: .65rem .35rem;
+    border-radius: 13px;
+    font-weight: 800;
+}
+
+.pagina-simulador .lab-etiqueta {
+    display: inline-block;
+    padding: .35rem .8rem;
+    border-radius: 999px;
+    background: #fff0ba;
+    color: #604700;
+    font-size: .78rem;
+    font-weight: 900;
+    letter-spacing: .05em;
+}
+
+
+/* INTERRUPTORES */
+
+.pagina-simulador .entrada-controle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: .9rem 1rem;
+    margin-bottom: .7rem;
+    border: 2px solid #e6def8;
+    border-radius: 16px;
+    background: #fbf9ff;
+}
+
+.pagina-simulador .switch-circuito {
+    position: relative;
+    display: inline-flex;
+    flex: 0 0 58px;
+    width: 58px;
+    height: 32px;
+    cursor: pointer;
+}
+
+.pagina-simulador .switch-circuito input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.pagina-simulador .switch-visual {
+    position: absolute;
+    inset: 0;
+    border-radius: 999px;
+    background: #bbb4cc;
+    transition: background .2s ease;
+}
+
+.pagina-simulador .switch-visual::before {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,.2);
+    transition: transform .2s ease;
+}
+
+.pagina-simulador .switch-circuito input:checked + .switch-visual {
+    background: #20b982;
+}
+
+.pagina-simulador .switch-circuito input:checked + .switch-visual::before {
+    transform: translateX(26px);
+}
+
+.pagina-simulador .switch-circuito input:focus-visible + .switch-visual {
+    outline: 3px solid #6c3fe0;
+    outline-offset: 3px;
+}
+
+
+/* ÁREA DO CIRCUITO */
+
+.pagina-simulador .circuito-palco {
+    padding: 1rem .5rem;
+    border: 2px dashed #cfc2f5;
+    border-radius: 22px;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(92,200,255,.15), transparent 32%),
+        radial-gradient(circle at 85% 80%, rgba(47,214,160,.16), transparent 32%),
+        #fbf9ff;
+}
+
+.pagina-simulador #diagramaCircuito {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 170px;
+}
+
+.pagina-simulador .fio-circuito {
+    fill: none;
+    stroke: #a9a2bb;
+    stroke-width: 7;
+    stroke-linecap: round;
+    transition: stroke .2s ease;
+}
+
+.pagina-simulador .fio-circuito.fio-ativo {
+    stroke: #1eaa78;
+    filter: drop-shadow(0 0 4px rgba(30,170,120,.35));
+}
+
+.pagina-simulador .corpo-porta {
+    fill: #efe8ff;
+    stroke: #5632ad;
+    stroke-width: 5;
+    stroke-linejoin: round;
+}
+
+.pagina-simulador .texto-porta {
+    fill: #39216f;
+    font-size: 24px;
+    font-weight: 900;
+    text-anchor: middle;
+    dominant-baseline: middle;
+}
+
+.pagina-simulador .bolha-not {
+    fill: #fff;
+    stroke: #5632ad;
+    stroke-width: 5;
+}
+
+.pagina-simulador .rotulo-fio {
+    fill: #51466e;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+
+/* LÂMPADA */
+
+.pagina-simulador .lampada-circuito {
+    fill: #e1dced;
+    stroke: #777087;
+    stroke-width: 5;
+    transition: fill .2s ease, filter .2s ease;
+}
+
+.pagina-simulador .lampada-circuito.lampada-acesa {
+    fill: #ffd23f;
+    stroke: #e0a800;
+    filter: drop-shadow(0 0 11px rgba(255,210,63,.9));
+}
+
+
+/* LEGENDA */
+
+.pagina-simulador .legenda-circuito {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem 1.2rem;
+    margin-top: .9rem;
+    color: var(--muted);
+    font-size: .88rem;
+    font-weight: 800;
+}
+
+.pagina-simulador .legenda-circuito span {
+    display: inline-flex;
+    align-items: center;
+    gap: .45rem;
+}
+
+.pagina-simulador .legenda-sinal {
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+}
+
+.pagina-simulador .sinal-desligado {
+    background: #aaa3b8;
+}
+
+.pagina-simulador .sinal-ligado {
+    background: #1eaa78;
+}
+
+
+/* RESULTADO */
+
+.pagina-simulador .resultado-circuito,
+.pagina-simulador .explicacao-circuito {
+    padding: 1.1rem 1.2rem;
+    border-radius: 20px;
+}
+
+.pagina-simulador .resultado-circuito {
+    background: #fff8e1;
+    border: 2px solid #ffd23f;
+}
+
+.pagina-simulador .resultado-circuito > span {
+    color: #6d5a1b;
+    letter-spacing: .04em;
+}
+
+.pagina-simulador .expressao-circuito {
+    margin: .45rem 0;
+    color: var(--violet-dark);
+    font-family: var(--font-title);
+    font-size: 1.6rem;
+    font-weight: 900;
+}
+
+.pagina-simulador .valor-circuito {
+    display: inline-block;
+    padding: .35rem .7rem;
+    border-radius: 999px;
+    font-size: .9rem;
+    font-weight: 900;
+}
+
+.pagina-simulador .valor-circuito.valor-verdadeiro {
+    color: #14563e;
+    background: #c9f7e5;
+}
+
+.pagina-simulador .valor-circuito.valor-falso {
+    color: #7e2929;
+    background: #ffd9d9;
+}
+
+.pagina-simulador .explicacao-circuito {
+    border: 2px solid #cfc2f5;
+    background: #f7f3ff;
+    color: #51466e;
+}
+
+.pagina-simulador .explicacao-circuito strong {
+    color: var(--violet-dark);
+}
+
+
+/* TABELA-VERDADE DO CIRCUITO */
+
+.pagina-simulador #tabelaCircuito th {
+    background: #efe8ff;
+    color: #39216f;
+}
+
+.pagina-simulador #tabelaCircuito .linha-circuito-atual > * {
+    outline: 2px solid #6c3fe0;
+    outline-offset: -2px;
+    font-weight: 900;
+}
+
+.pagina-simulador #tabelaCircuito .valor-verdadeiro {
+    background: #c9f7e5;
+    color: #14563e;
+    font-weight: 900;
+}
+
+.pagina-simulador #tabelaCircuito .valor-falso-tabela {
+    background: #ffd9d9;
+    color: #7e2929;
+    font-weight: 900;
+}
+
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 575px) {
+
+    .pagina-simulador .seletor-portas {
+        grid-template-columns: 1fr;
+    }
+
+    .pagina-simulador #diagramaCircuito {
+        min-height: 135px;
+    }
+
+}
